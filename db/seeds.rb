@@ -1,6 +1,7 @@
 require 'csv'
+# encoding: utf-8
 
-CSV.foreach('db/食品成分インポート用2.csv', headers: true).each do |row|
+CSV.foreach('db/食品成分インポート用5.csv', headers: true).each do |row|
   ingredient = Ingredient.create!(
     name: row['name'],
     group: row['group'],
