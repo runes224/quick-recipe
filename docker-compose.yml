@@ -21,7 +21,7 @@ services:
     environment:
         - DATABASE_URL=postgres://root:password@postgres:5432/{DBmame}?sslmode=disable
     links:
-        - postgres:postgres
+        - db:db
     restart: always
     depends_on:
-        - postgres
+        - db
