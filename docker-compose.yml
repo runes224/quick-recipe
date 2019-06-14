@@ -13,3 +13,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  pgweb:
+    build: ./pgweb
+    container_name: "pgweb"
+    ports:
+        - "8081:8081"
+    environment:
+        - DATABASE_URL=postgres://root:password@postgres:5432/{DBmame}?sslmode=disable
+    links:
+        - postgres:postgres
+    restart: always
+    depends_on:
+        - postgres
