@@ -15,7 +15,6 @@ RUN \
   rm -f pgweb_linux_amd64.zip
 
 ADD ./wait.sh /usr/bin/wait.sh
-ADD ./setup.sh /usr/bin/setup.sh
 
 EXPOSE 8081
 
