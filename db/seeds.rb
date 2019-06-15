@@ -11,6 +11,7 @@ CSV.foreach('db/食品成分インポート用5.csv', headers: true).each do |ro
     lipid: row['lipid'],
     salt: row['salt'],
   )
+end
 
 Direction.create!(
     [
@@ -27,7 +28,7 @@ Direction.create!(
     ]
   )
 
-Ingredient_relation.create!(
+IngredientRelation.create!(
     [
       {
       ingredient_id: '2046',
@@ -52,5 +53,6 @@ Recipe.create!(
 )
 User.create!(
   name: 'テスト太郎',
-  email: 'example.com',
+  email: 'example@mail.com',
+  password: 'password',
 )
