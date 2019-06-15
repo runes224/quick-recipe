@@ -22,7 +22,7 @@ services:
     ports:
         - "8081:8081"
     environment:
-        - DATABASE_URL=postgres://postgres:postgres@postgres:5432/{DBmame}?sslmode=disable
+        - DATABASE_URL=db://postgres:postgres@postgres:5432/{DBmame}?sslmode=disable
     links:
         - db:db
     restart: always
