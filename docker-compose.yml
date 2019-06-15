@@ -2,6 +2,9 @@ version: '3'
 services:
   db:
     image: postgres:11.3-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres    
     volumes:
       - ./tmp/db:/var/lib/postgresql/data:delegated
   web:
