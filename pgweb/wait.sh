@@ -4,9 +4,9 @@
 	  echo "Wait for 1 seconds..."
 	  sleep 1
 	
-	  export PGPASSWORD=password
+	  export PGPASSWORD=postgres
 
-	  /usr/bin/psql -h 'postgres' -p '5432' -U 'root' -c 'select 1;' 2>&1 > /dev/null
+	  /usr/bin/psql -h 'postgres' -p '5432' -U 'postgres' -c 'select 1;' 2>&1 > /dev/null
 
 	  if [[ $? -eq 0 ]]; then
 	    echo "Connection established."
