@@ -2,6 +2,11 @@ version: '3'
 services:
   db:
     image: postgres:11.3-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+        - "5432:5432"
     volumes:
       - ./tmp/db:/var/lib/postgresql/data:delegated
   web:
@@ -13,3 +18,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  pgweb:
+    build: ./pgweb
+    container_name: "pgweb"
+    ports:
+        - "8081:8081"
+    environment:
+        - DATABASE_URL=postgres://postgres:postgres@db:5432/myapp_development?sslmode=disable
+    links:
+        - db:db
+    restart: always
+    depends_on:
+        - db
