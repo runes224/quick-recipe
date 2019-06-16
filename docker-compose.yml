@@ -5,10 +5,10 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+        - "5432:5432"
     volumes:
       - ./tmp/db:/var/lib/postgresql/data:delegated
-    ports:
-      - 5432:5432
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -18,3 +18,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  pgweb:
+    build: ./pgweb
+    container_name: "pgweb"
+    ports:
+        - "8081:8081"
+    environment:
+        - DATABASE_URL=postgres://postgres:postgres@db:5432/myapp_development?sslmode=disable
+    links:
+        - db:db
+    restart: always
+    depends_on:
+        - db
