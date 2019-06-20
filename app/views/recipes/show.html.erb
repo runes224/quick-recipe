@@ -32,3 +32,9 @@
     <% end %>
   </tbody>
 </table>
+
+  <% @recipe.directions.each do |d| %>
+    <%= d.number %>
+    <%= d.content %>
+    <hr>
+  <% end %>
