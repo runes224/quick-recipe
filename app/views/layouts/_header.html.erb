@@ -2,15 +2,16 @@
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F2F2F2;">
     <%= link_to "QuickRecipe", root_path, id: "logo", class: "navbar-brand" %>
     <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
+      　 <span class="navbar-toggler-icon"></span>
+      　 </button>
     <ul class="nav navbar-nav collapse navbar-collapse justify-content-end" id="navbarNav4">
       <li class="mr-3"><%= link_to "Home", root_path, class:"text-dark" %></li>
-      <li  class="mr-3"><%= link_to "Help", help_path, class:"text-dark" %></li>
+      <li class="mr-3"><%= link_to "Help", help_path, class:"text-dark" %></li>
       <% if logged_in? %>
       <li class="mr-3"><%= link_to "Users",'#', class:"text-dark" %></li>
+      <li class="mr-3"><%= link_to "Create Recipe",new_recipe_path, class:"text-dark" %></li>
       <li class="dropdown open">
-        <div href="#" class="dropdown-toggle text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <div href="#" class="dropdown-toggle text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
         </div>
         <ul class="dropdown-menu">
@@ -23,9 +24,9 @@
         </ul>
       </li>
       <% else %>
-        <li><%= link_to "Log in", login_path, class:"text-dark dropdown-item" %></li>
+      <li><%= link_to "Log in", login_path, class:"text-dark dropdown-item" %></li>
       <% end %>
     </ul>
   </nav>
-</div>
+  </div>
 </header>

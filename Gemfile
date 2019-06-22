@@ -10,6 +10,7 @@ gem 'mini_racer'
 gem 'rails', '~> 5.2.3'
 gem 'bootstrap', '~>4.3.1'
 gem 'jquery-rails'
+gem 'nested_form_fields'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
