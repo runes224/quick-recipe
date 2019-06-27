@@ -1,0 +1,2 @@
+module IngredientRelationsHelper
+end
