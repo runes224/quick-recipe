@@ -12,3 +12,12 @@
 <%= f.text_field :display_ingredient_name %>
 <%= f.submit %>
 <% end %>
+
+<h2>材料一覧</h2>
+<div class="post_wrapper">
+  <% if @ingredient_relation %>
+    <% @ingredient_relation.each do |r| %>
+    <p><%= r.weight %></p>
+    <% end %>
+  <% end %>
+</div>

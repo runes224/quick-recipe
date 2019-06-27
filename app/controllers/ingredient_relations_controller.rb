@@ -5,7 +5,7 @@ class IngredientRelationsController < ApplicationController
     @recipe = Recipe.find_by(id: session[:recipe_id])
     @ingredient_relation = @recipe.ingredient_relations.build(ingredient_relation_params)
     @ingredient_relation.save
-    render :json => @ingredient_relation
+    render json: @ingredient_relation
   end
 
   private
