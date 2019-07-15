@@ -1,0 +1,45 @@
+- provide(:title, @recipe.name)
+h1
+  = @recipe.name
+= @recipe.description
+h2
+  |  材料 
+table.table
+  thead
+    tr
+      th
+        | 材料名
+      th
+        | 量
+      th
+        | カロリー
+      th
+        | 炭水化物
+      th
+        | タンパク質
+      th
+        | 脂質
+      th
+        | 塩分
+  tbody
+    - @recipe.ingredient_relations.zip(@recipe.ingredients) do |r, t|
+      tr
+        th
+          = r.display_ingredient_name
+        th
+          = r.display_weight_name
+        th
+          = t.calorie
+        th
+          = t.carbohydrate
+        th
+          = t.protein
+        th
+          = t.lipid
+        th
+          = t.salt
+- @recipe.directions.each do |d|
+  .card
+    .card-body
+      = d.number
+      = d.content

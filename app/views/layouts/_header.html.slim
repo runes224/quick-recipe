@@ -1,0 +1,31 @@
+header
+  nav.navbar.navbar-expand-lg.navbar-light[style="background-color: #F2F2F2;"]
+    = link_to "QuickRecipe", root_path, id: "logo", class: "navbar-brand"
+    button.navbar-toggler.mr-2[type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation"]
+      |  　 
+      span.navbar-toggler-icon
+      |  　 
+    ul#navbarNav4.nav.navbar-nav.collapse.navbar-collapse.justify-content-end
+      li.mr-3
+        = link_to "Home", root_path, class: "text-dark"
+      li.mr-3
+        = link_to "Help", help_path, class: "text-dark"
+      - if logged_in?
+        li.mr-3
+          = link_to "Users", '#', class: "text-dark"
+        li.mr-3
+          = link_to "Create Recipe", new_recipe_path, class: "text-dark"
+        li.dropdown.open
+          .dropdown-toggle.text-dark[href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+            |  Account 
+          ul.dropdown-menu
+            li
+              = link_to "Profile", current_user, class: "text-dark dropdown-item"
+            li
+              = link_to "Setting", '#', class: "text-dark dropdown-item"
+          .dropdown-divider
+        li
+          = link_to "Log out", logout_path, method: :delete, class: "text-dark dropdown-item"
+      - else
+        li
+          = link_to "Log in", login_path, class: "text-dark dropdown-item"
