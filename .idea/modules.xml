@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/recipie_app2.iml" filepath="$PROJECT_DIR$/.idea/recipie_app2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipie_app21.iml" filepath="$PROJECT_DIR$/.idea/modules/recipie_app21.iml" />
     </modules>
   </component>
 </project>

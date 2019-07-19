@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   post '/login',    to: 'sessions#create'
   delete  '/logout',   to: 'sessions#destroy'
   get '/signup', to: 'users#new'
-  resources :users, only: [:create, :show, :destroy]
-  resources :recipes, only: [:new, :create, :show, :update, :destroy]
-  resources :ingredients, only: [:create, :update, :destroy]
-  resources :ingredient_relations, only: [:create, :destroy]
-  resources :myrecipes, only: [:create, :destroy]
+  resources :users, only: [:create, :show, :destroy] do
+    resources :myrecipes, only: [:create, :destroy]
+  end
+  resources :recipes, only: [:new, :create, :show, :update, :destroy] do
+    resources :ingredient_relations, only: [:create, :destroy]
+    resources :directions, only: [:create, :destroy, :update]
+  end
 end
