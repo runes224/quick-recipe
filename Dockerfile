@@ -1,4 +1,5 @@
-FROM ruby:2.5
+FROM ruby:2.6.3
+ENV LANG C.UTF-8
 RUN bash - && apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /myapp
 WORKDIR /myapp
@@ -15,6 +16,3 @@ EXPOSE 3000
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
-# Setting locale
-ENV LANG C.UTF-8
