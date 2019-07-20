@@ -1,5 +1,6 @@
-class IngredientRelationsController < ApplicationController
+# frozen_string_literal: true
 
+class IngredientRelationsController < ApplicationController
   def create
     # user_params = params.permit(:name, :email)
     @recipe = Recipe.find_by(id: session[:recipe_id])
@@ -14,5 +15,4 @@ class IngredientRelationsController < ApplicationController
     # params.require(:recipe).permit(:name, :description, directions_attributes: [:number, :content])
     params.permit(:ingredient_id, :weight, :display_weight_name, :display_ingredient_name)
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Direction < ApplicationRecord
   belongs_to :recipe, optional: true
   validates :number, presence: true
