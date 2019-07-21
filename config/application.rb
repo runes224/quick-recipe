@@ -15,7 +15,6 @@ module Myapp
     config.generators.template_engine = :slim # slimに変更
     config.generators do |g| #Rspecの設定 不要なテストファイルが作成されない設定
       g.test_framework :rspec,
-                       fixtures: false,
                        view_specs: false,
                        helper_specs: false,
                        routing_specs: false

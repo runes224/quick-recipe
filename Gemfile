@@ -44,6 +44,7 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false, group: :test
   gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
