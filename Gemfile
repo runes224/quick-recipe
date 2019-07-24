@@ -22,6 +22,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -40,11 +41,13 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
-  gem 'rspec'
+  gem 'webdriver'
   gem 'simplecov', require: false, group: :test
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers',
+      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+      branch: 'rails-5'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
