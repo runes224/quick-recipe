@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -48,6 +51,7 @@ group :test do
   gem 'shoulda-matchers',
       git: 'https://github.com/thoughtbot/shoulda-matchers.git',
       branch: 'rails-5'
+  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

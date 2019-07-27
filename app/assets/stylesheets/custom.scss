@@ -7,7 +7,9 @@
 }
 
 /* universal */
-
+body {
+  background-color: #F9D777;
+}
 
 section {
   overflow: auto;
@@ -52,21 +54,24 @@ p {
   line-height: 1.7em;
 }
 
+/* header */
+
+header {
+  background-color: #151515;
+}
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: #ffffff;
+  background-color: #151515;
 }
 
 footer a {
   color: #555;
-}
-
-footer a:hover {
-  color: #222;
 }
 
 footer small {
@@ -131,14 +136,21 @@ aside {
 }
 
 /* forms */
+
 form {
   margin: 0 auto;
 }
+
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+.row {
+  background-color: #FAF7F7;
 }
 
 input {
