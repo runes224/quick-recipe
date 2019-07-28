@@ -1,11 +1,11 @@
-- provide(:title, 'Create Recipe')
+- provide(:title, 'レシピの投稿')
 h1
-  | レシピを作成する
-h2
-  | New Recipe
+  | レシピの投稿
 = form_with model: @recipe do |f|
   = f.label :name
   = f.text_field :name, class: 'form-control'
+  = f.label :image
+  = f.file_field :image
   = f.label :description
   = f.text_field :description, class: 'form-control'
   = f.submit

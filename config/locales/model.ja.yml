@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      recipe: レシピ # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
     attributes:
       user:
         id: ID
@@ -10,3 +11,12 @@ ja:
         crypted_password: パスワード
         created_at: 作成日
         updated_at: 更新日
+      recipe:
+        id: ID
+        user_id: ユーザーID
+        name: 料理名
+        description: 説明
+        image: 料理のイメージ
+        created_at: 作成日
+        updated_at: 更新日
+

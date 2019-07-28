@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   devise_for :users
-
   # resources :users, only: %i[create show destroy] do
   #   resources :myrecipes, only: %i[create destroy]
   # end

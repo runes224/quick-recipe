@@ -1,3 +1,5 @@
 - provide(:title, "ホーム")
-h1 QuickRecipe
-= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-outline-dark mt-4"
+h1
+  | QuickRecipe
+- @recipes.each do |recipe|
+  = image_tag recipe.image_url
