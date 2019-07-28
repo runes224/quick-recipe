@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'StaticPages', type: :system do
-  describe "ホーム" do
+  describe "ホーム画面" do
     before do
       visit root_path
     end
@@ -15,7 +15,7 @@ RSpec.describe 'StaticPages', type: :system do
     end
   end
 
-  describe "新規登録" do
+  describe "新規登録画面" do
     before do
       visit new_user_registration_path
     end
@@ -29,7 +29,7 @@ RSpec.describe 'StaticPages', type: :system do
     end
   end
 
-  describe "ログイン" do
+  describe "ログイン画面" do
     before do
       visit new_user_session_path
     end
