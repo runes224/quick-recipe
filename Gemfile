@@ -28,6 +28,7 @@ gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
