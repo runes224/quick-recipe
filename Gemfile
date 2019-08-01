@@ -29,6 +29,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'seed-fu'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -2,7 +2,7 @@
 
 class StaticPagesController < ApplicationController
   def home
-    @recipes = Recipe.all
+    @recipes = Recipe.all.page(params[:page])
   end
 
   def help; end
