@@ -12,9 +12,10 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # @ingredient_relation = @recipe.ingredient_relations.build
-    # @direction = @recipe.directions.build
-    @recipe = current_user.recipes.build(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    @recipe.valid?
+    Rails::logger::debug(@recipe.errors.messages)
     @recipe.save!
     redirect_to root_path
   end
@@ -22,7 +23,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :image, ingredient_relations_attributes: [:weight, :display_weight_name, :display_ingredient_name], directions_attributes: [:number, :content])
+    params.require(:recipe).permit(:id, :name, :description, :image, ingredient_relations_attributes: [:id, :recipe_id, :ingredient_id, :weight, :display_weight_name, :display_ingredient_name, :_destroy], directions_attributes: [:id, :number, :content, :_destroy])
   end
 
 end
