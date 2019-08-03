@@ -1,11 +1,25 @@
 - provide(:title, 'レシピの投稿')
 h1
   | レシピの投稿
-= form_with model: @recipe do |f|
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
-  = f.label :image
-  = f.file_field :image
-  = f.label :description
-  = f.text_field :description, class: 'form-control'
-  = f.submit
+= simple_form_for(@recipe) do |f|
+  - if @recipe.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@recipe.errors.count, "error")
+        prohibited this recipe from being saved:
+      ul
+        - @recipe.errors.full_messages.each do |message|
+          li= message
+  .field
+    = f.input :name
+    = f.input :image
+    = f.input :description
+  .field
+    h2 材料
+    = f.simple_fields_for :ingredient_relations do |ingredient_relation|
+      = render 'ingredient_relation_fields', f: ingredient_relation
+  .field
+    h2 作り方
+    = f.simple_fields_for :directions do |direction|
+      = render 'direction_fields', f: direction
+  = f.submit '登録'
