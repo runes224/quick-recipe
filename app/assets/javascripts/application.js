@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap
 //= require nested_form_fields
+//= require cocoon
 
 // $(function () {
 //   $(document).on('click', 'input[type=submit]', function () {
@@ -37,3 +38,5 @@ $(function () {
     console.log(data);
   })
 })
+
+

@@ -7,23 +7,22 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @ingredient_relation = IngredientRelation.new
+    @ingredient_relation = @recipe.ingredient_relations.build
+    @direction = @recipe.directions.build
   end
 
   def create
+    # @ingredient_relation = @recipe.ingredient_relations.build
+    # @direction = @recipe.directions.build
     @recipe = current_user.recipes.build(recipe_params)
     @recipe.save!
-    session[:recipe_id] = @recipe.id
-    redirect_to new_ingredient_relation_path
+    redirect_to root_path
   end
 
   private
 
   def recipe_params
-    # params.require(:recipe).permit(:name, :description, directions_attributes: [:number, :content])
-
-    # params.require(:recipe).permit(:name, :description, ingredient_relations_attributes: [:weight, :display_weight_name, :display_ingredient_name])
-
-    params.require(:recipe).permit(:name, :description, :image)
+    params.require(:recipe).permit(:name, :description, :image, ingredient_relations_attributes: [:weight, :display_weight_name, :display_ingredient_name], directions_attributes: [:number, :content])
   end
+
 end
