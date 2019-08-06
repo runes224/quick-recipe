@@ -1,7 +1,19 @@
 .nested-fields
   .form-row
-    .col
-      = f.input :ingredient_id
+    .search_box
+      input#ingredient_form
+      input.btn-primary#submit_button
+      p 検索結果は以下に表示
+      .form-group
+        label for="exampleSelect1exampleFormControlSelect1"  選択の例
+        select#ingredient-search-results.form-control
+          ingredient_list
+      .form-group
+        label for="exampleFormControlSelect2"  複数選択の例
+        select#exampleFormControlSelect2.form-control multiple=""
+          ingredient_list
+      ul.ingredient_list
+  .form-row
     .col
       = f.input :display_ingredient_name
     .col

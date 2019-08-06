@@ -25,22 +25,6 @@ h1
       .col-md-6
         .field
           h2 材料
-          / = search_form_for @query, remote: true, id: "search_form", url: dashboards_path do |f|
-          /   div class="form-group"
-          /     = f.text_field :title_or_content_cont, class: "form-control"
-          /   div class="actions"
-          /     = f.submit "Search"
-          /
-          /   table.m-t-30
-          /     tr
-          /       th = "タイトル"
-          /     tbody#search_check
-          /       - @articles.each do |article|
-          /         tr
-          /           td
-          /             = link_to edit_dashboard_path(article.id), class: 'text-link' do
-          /               = article.title
-          / .search_box
           = f.simple_fields_for :ingredient_relations do |ingredient_relation|
             = render 'ingredient_relation_fields', f: ingredient_relation
             br

@@ -45,29 +45,6 @@ $(function () {
     });
 });
 
-$(function () {
-    $("#submit_button").click(function () { //送信ボタンを押すとイベントが発火します
-        var input = $("#meal_form").val(); // フォームの値を'input'という名前の変数に代入します
-        $.ajax({
-            type: 'GET', // リクエストのタイプはGETです
-            url: '/meals', // URLは"/meals"を指定します
-            data: {keyword: input}, // コントローラへフォームの値を送信します
-            dataType: 'json' // データの型はjsonで指定します
-        })
-            .done(function (data) {
-                // 通信に成功した場合の処理です
-                $('.meal_list').empty(); //前回の検索結果が残っている場合はそれを消します
-                data.forEach(function (meal) {
-                    $('.meal_list').append(`<li>${meal.name} </li>`);
-                }) //データは配列形式でかえってくるので、forEachで繰り返し処理をします
-            })
-            .fail(function () {
-                // 通信に失敗した場合の処理です
-                alert('検索に失敗しました') // alertで検索失敗の旨を表示します
-            })
-    })
-})
-
 // レシピ登録フォーム 手順追加時の自動付番
 $(function () {
     $('.js-direction')
@@ -113,3 +90,56 @@ $(function () {
         }
     });
 });
+//
+// var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+//
+// $(function() {
+//     $("#search_form").keyup(function() {
+//         return $("#search_form").find("input[type='submit']").click();
+//     });
+//     return $('#search_form').on('ajax:success', function(event, results) {
+//         var $select, $trs;
+//         $select = $("#search_check");
+//         $trs = $select.find("tr");
+//         return $trs.each(function() {
+//             var value;
+//             value = $(this).find("td").first().text();
+//             if (indexOf.call(results, value) >= 0) {
+//                 return $(this).show();
+//             } else {
+//                 return $(this).hide();
+//             }
+//         });
+//     });
+// });
+
+$(function () {
+    $("#submit_button").click(function () { //送信ボタンを押すとイベントが発火します
+        var input = $("#ingredient_form").val(); // フォームの値を'input'という名前の変数に代入します
+
+        $.ajax({
+            type: 'GET', // リクエストのタイプはGETです
+            url: '/recipes', // URLは"/ingredients"を指定します
+            data: {keyword: input}, // コントローラへフォームの値を送信します
+            dataType: 'json' // データの型はjsonで指定します
+        })
+            .done(function (data) {
+                // 通信に成功した場合の処理です
+                $('.ingredient_list').empty(); //前回の検索結果が残っている場合はそれを消します
+                // data.forEach(function(ingredient){
+                // $('.ingredient_list').append(`option ${ingredient.name} `);
+                for (var i = 0; i < data.length; i++) {
+                    let op = document.createElement("option");
+                    op.value = data[i].name;  //value値
+                    op.text = data[i].name;  //value値
+                    // op.text = data[i].txt;   //テキスト値
+                    document.getElementById("ingredient-search-results").appendChild(op);
+                }
+                //データは配列形式でかえってくるので、forEachで繰り返し処理をします
+            })
+            .fail(function () {
+                // 通信に失敗した場合の処理です
+                alert('検索に失敗しました') // alertで検索失敗の旨を表示します
+            })
+    })
+})

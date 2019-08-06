@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
+  def index
+    @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
   end
 
   def new
+
     # @query = Ingredient.ransack(params[:q])
     # @ingredients = @query.result
     # if params[:q].present?
-    #   render json:  @articles.select("name").map { |e| e.title  }.to_json
+    #   render json:  @ingredients.select("name").map { |e| e.title  }.to_json
     # end
     @recipe = Recipe.new
     @ingredient_relation = @recipe.ingredient_relations.build
