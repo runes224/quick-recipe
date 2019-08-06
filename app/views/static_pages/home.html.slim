@@ -1,13 +1,13 @@
 - provide(:title, "ホーム")
 h1.pt-5.pb-0.mb-0
   | QuickRecipe
-h2.pt-0
+h2#sub-title.pt-0
   | 素早く、健康的なレシピをお届けします。
 .container
   .row#background_color
-    .col-sm-4.text-bottom
+    .col-sm-5.text-bottom
       = paginate @recipes
-    .col-sm-6
+    .col-sm-5
       .input-group action="#"
         input.form-control type="text" placeholder="料理名・材料名..."
         .input-group-btn

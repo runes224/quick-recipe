@@ -11,6 +11,7 @@ gem 'rubocop', require: false
 gem 'slim'
 gem 'bootstrap', '~>4.3.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'nested_form_fields'
 gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -33,6 +34,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'cocoon'
 gem 'simple_form'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

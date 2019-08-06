@@ -1,3 +1,9 @@
 .nested-fields
-  = f.input :number
-  = f.input :content
+  .form-row
+    .col-1
+      = f.input :number, id: "direction-number background_color"
+    .col-10
+      = f.input :content, as: :text
+    .col-1
+      br
+      = link_to_remove_association '❌', f

@@ -3,6 +3,8 @@ ja:
     models:
       user: ユーザー # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
       recipe: レシピ # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      ingredient_relation: レシピと材料の関係 # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      direction: 手順
     attributes:
       user:
         id: ID
@@ -19,4 +21,17 @@ ja:
         image: 料理のイメージ
         created_at: 作成日
         updated_at: 更新日
+      ingredient_relation:
+        id: ID
+        recipe_id: レシピID
+        ingredient_id: 材料ID
+        weight: 重量
+        display_weight_name: 重量表示
+        display_ingredient_name: 材料表示
+        created_at: 作成日
+        updated_at: 更新日
+      direction:
+        recipe_id: レシピID
+        content: 作り方
+        number: 番号
 

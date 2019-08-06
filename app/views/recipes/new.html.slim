@@ -10,16 +10,51 @@ h1
       ul
         - @recipe.errors.full_messages.each do |message|
           li= message
-  .field
-    = f.input :name
-    = f.input :image
-    = f.input :description
-  .field
-    h2 材料
-    = f.simple_fields_for :ingredient_relations do |ingredient_relation|
-      = render 'ingredient_relation_fields', f: ingredient_relation
-  .field
-    h2 作り方
-    = f.simple_fields_for :directions do |direction|
-      = render 'direction_fields', f: direction
-  = f.submit '登録'
+  .container
+    .row
+      .col-md-6
+        .field#myfile
+          = f.input :image
+          img#img1
+      .col-md-6
+        .field
+          = f.input :name
+          = f.input :description, as: :text
+  .container
+    .row#second-form
+      .col-md-6
+        .field
+          h2 材料
+          / = search_form_for @query, remote: true, id: "search_form", url: dashboards_path do |f|
+          /   div class="form-group"
+          /     = f.text_field :title_or_content_cont, class: "form-control"
+          /   div class="actions"
+          /     = f.submit "Search"
+          /
+          /   table.m-t-30
+          /     tr
+          /       th = "タイトル"
+          /     tbody#search_check
+          /       - @articles.each do |article|
+          /         tr
+          /           td
+          /             = link_to edit_dashboard_path(article.id), class: 'text-link' do
+          /               = article.title
+          / .search_box
+          = f.simple_fields_for :ingredient_relations do |ingredient_relation|
+            = render 'ingredient_relation_fields', f: ingredient_relation
+            br
+        .field
+          = link_to_add_association '+', f, :ingredient_relations, class: "btn-circle-3d  mx-auto d-block"
+      .col-md-6.js-direction.sortable
+        h2 手順
+        .field
+          = f.simple_fields_for :directions do |direction|
+            = render 'direction_fields', f: direction, class: "Sortable"
+        .field
+          = link_to_add_association '+', f, :directions, class: "btn-circle-3d  mx-auto d-block"
+  = f.submit '登録', class: "btn btn-primary mx-auto d-block"
+
+sass:
+  .row
+    background-color: #F9D777;

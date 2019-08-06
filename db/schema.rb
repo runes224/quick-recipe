@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 2019_07_28_040206) do
     t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-x3    t.string "display_ingredient_name"
+    t.string "display_weight_name"
+    t.string "display_ingredient_name"
   end
 
   create_table "ingredients", force: :cascade do |t|
