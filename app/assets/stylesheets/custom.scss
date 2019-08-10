@@ -2,6 +2,8 @@
 
 /*
  *= require jquery.ui.all
+ *= require_tree .
+ *= require_self
  */
 
 
@@ -112,34 +114,6 @@ footer ul li {
   @include box_sizing;
 }
 
-/* sidebar */
-
-//aside {
-//  section.user_info {
-//    margin-top: 20px;
-//  }
-//  section {
-//    padding: 10px 0;
-//    margin-top: 20px;
-//    &:first-child {
-//      border: 0;
-//      padding-top: 0;
-//    }
-//    span {
-//      display: block;
-//      margin-bottom: 3px;
-//      line-height: 1;
-//    }
-//    h1 {
-//      font-size: 1.4em;
-//      text-align: left;
-//      letter-spacing: -1px;
-//      margin-bottom: 3px;
-//      margin-top: 0px;
-//    }
-//  }
-//}
-
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -244,15 +218,16 @@ input {
   margin: 0 auto;
 }
 
-// 子モデルのフォーム名の非表示
-#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(1) > div > label,
-#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(2) > div > label,
-#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(3) > div > label,
-#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(4) > div > label,
-#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(1) > div > label,
-#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(2) > div > label {
-  display: none;
-}
+//// 子モデルのフォーム名の非表示
+//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(1) > div > label,
+//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(2) > div > label,
+//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(3) > div > label,
+//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(4) > div > label,
+//#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(1) > div > label,
+//#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(2) > div > label,
+//#second-form > div:nth-child(1) > div:nth-child(7) > div > div:nth-child(5) > div > label {
+//  display: none;
+//}
 
 
 // 手順テーブル1項目目と2項目目の幅を合わせる
@@ -260,10 +235,7 @@ input {
   height: 90px;
 }
 
-// フォームの2項目目の高さの調整
-//.nested-fields {
-//  height: 40px;
-//}
+
 
 // 材料フォーム1項目目と2項目目の幅を合わせる
 #new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1),
@@ -353,4 +325,26 @@ abbr {
 #recipe_directions_attributes_0_number {
   position: relative;
   bottom: 25px;
+}
+
+#ingredient-search-results {
+  li:hover {
+    cursor: pointer;
+    background-color: #7C7C7C;
+    color: #FFFFFF;
+  }
+}
+
+#add_ingredient_field,
+#open_modal {
+  display: none !important;
+}
+
+#submit_button {
+  cursor: pointer;
+}
+
+//材料関係テーブル ID入力欄を消す
+.hide {
+  display: none;
 }

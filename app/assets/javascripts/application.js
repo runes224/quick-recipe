@@ -90,28 +90,7 @@ $(function () {
         }
     });
 });
-//
-// var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-//
-// $(function() {
-//     $("#search_form").keyup(function() {
-//         return $("#search_form").find("input[type='submit']").click();
-//     });
-//     return $('#search_form').on('ajax:success', function(event, results) {
-//         var $select, $trs;
-//         $select = $("#search_check");
-//         $trs = $select.find("tr");
-//         return $trs.each(function() {
-//             var value;
-//             value = $(this).find("td").first().text();
-//             if (indexOf.call(results, value) >= 0) {
-//                 return $(this).show();
-//             } else {
-//                 return $(this).hide();
-//             }
-//         });
-//     });
-// });
+
 
 $(function () {
     $("#submit_button").click(function () { //送信ボタンを押すとイベントが発火します
@@ -125,14 +104,11 @@ $(function () {
         })
             .done(function (data) {
                 // 通信に成功した場合の処理です
-                $('.ingredient_list').empty(); //前回の検索結果が残っている場合はそれを消します
-                // data.forEach(function(ingredient){
-                // $('.ingredient_list').append(`option ${ingredient.name} `);
+                $('#ingredient-search-results').empty(); //前回の検索結果が残っている場合はそれを消します
                 for (var i = 0; i < data.length; i++) {
-                    let op = document.createElement("option");
-                    op.value = data[i].name;  //value値
-                    op.text = data[i].name;  //value値
-                    // op.text = data[i].txt;   //テキスト値
+                    let op = document.createElement("li");
+                    op.value = data[i].id;  //value値
+                    op.append(data[i].name);
                     document.getElementById("ingredient-search-results").appendChild(op);
                 }
                 //データは配列形式でかえってくるので、forEachで繰り返し処理をします
@@ -142,4 +118,41 @@ $(function () {
                 alert('検索に失敗しました') // alertで検索失敗の旨を表示します
             })
     })
-})
+
+    //材料入力 初回読み込み時のフォーム削除
+    $(function () {
+        document.querySelector("#second-form > div:nth-child(1) > div:nth-child(6) > div > div > div:nth-child(6) > a").click();
+    });
+
+// 検索時の処理
+    $(function () {
+        $(document).on('click', '#submit_button', function () {
+            $('#open_modal').click();
+            $('#add_ingredient_field').click();
+        });
+    });
+// 材料選択時の処理
+    $(function () {
+        $(document).on('click', '#ingredient-search-results li', function () {
+            var val = $(this).val();
+            var tex = $(this).text();
+            $('#myModal').modal('hide');
+            $('[id^="recipe_ingredient_relations_attributes_"][id*="_id"]').each(function () {
+                if ($(this).val() == "") {
+                    $(this).val(val);
+                }
+            });
+            $('#ingredient_name').each(function () {
+                if ($(this).text() == "") {
+                    $(this).text(tex);
+                }
+            });
+            $('[id^="recipe_ingredient_relations_attributes_"][id*="_display_ingredient_name"]').each(function () {
+                if ($(this).val() == "") {
+                    $(this).val(tex);
+                }
+            });
+            $('#ingredient_form').val('');
+        });
+    });
+});

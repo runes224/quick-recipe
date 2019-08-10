@@ -1,9 +1,9 @@
 .nested-fields
   .form-row
     .col-1
-      = f.input :number, id: "direction-number background_color"
+      = f.input :number, id: "direction-number background_color", label: false
     .col-10
-      = f.input :content, as: :text
+      = f.input :content, as: :text, label: false
     .col-1
       br
       = link_to_remove_association '❌', f

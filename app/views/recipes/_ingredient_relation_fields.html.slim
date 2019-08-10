@@ -1,21 +1,11 @@
 .nested-fields
   .form-row
-    .search_box
-      input#ingredient_form
-      input.btn-primary#submit_button
-      p 検索結果は以下に表示
-      .form-group
-        label for="exampleSelect1exampleFormControlSelect1"  選択の例
-        select#ingredient-search-results.form-control
-          ingredient_list
-      .form-group
-        label for="exampleFormControlSelect2"  複数選択の例
-        select#exampleFormControlSelect2.form-control multiple=""
-          ingredient_list
-      ul.ingredient_list
-  .form-row
+    .col.hide
+      = f.input :id
     .col
-      = f.input :display_ingredient_name
+      div#ingredient_name
+    .col
+      = f.input :display_ingredient_name, label: false
     .col
       = f.input :display_weight_name
     .col
