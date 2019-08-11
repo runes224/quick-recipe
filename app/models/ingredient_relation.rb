@@ -5,3 +5,4 @@ class IngredientRelation < ApplicationRecord
   belongs_to :ingredient, inverse_of: :ingredient_relations
   validates :weight, presence: true
 end
+    

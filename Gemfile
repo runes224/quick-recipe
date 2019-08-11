@@ -19,7 +19,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -35,6 +34,7 @@ gem 'kaminari-bootstrap'
 gem 'cocoon'
 gem 'simple_form'
 gem 'ransack'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

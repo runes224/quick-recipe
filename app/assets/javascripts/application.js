@@ -10,16 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
-//= require_tree.
 //= require jquery3
+//= require jquery.turbolinks
+//= require activestorage
+//= require_tree.
 //= require popper
 //= require bootstrap
 //= require nested_form_fields
 //= require cocoon
 //= require jquery-ui
+// = require rails-ujs
 
 $(function () {
     $('#myfile').change(function (e) {
@@ -121,9 +121,10 @@ $(function () {
 
     //材料入力 初回読み込み時のフォーム削除
     $(function () {
-        document.querySelector("#second-form > div:nth-child(1) > div:nth-child(6) > div > div > div:nth-child(6) > a").click();
+        document.querySelector("#second-form > div:nth-child(1) > div:nth-child(5) > div > div.card-header.py-0 > div:nth-child(3) > a").click();
     });
 
+    var n = 0
 // 検索時の処理
     $(function () {
         $(document).on('click', '#submit_button', function () {
@@ -142,17 +143,26 @@ $(function () {
                     $(this).val(val);
                 }
             });
-            $('#ingredient_name').each(function () {
+            $('.ingredient_name').each(function () {
                 if ($(this).text() == "") {
                     $(this).text(tex);
                 }
             });
             $('[id^="recipe_ingredient_relations_attributes_"][id*="_display_ingredient_name"]').each(function () {
                 if ($(this).val() == "") {
-                    $(this).val(tex);
+                    var array = tex;
+                    var str = array.split('・');
+                    $(this).val(str[0]);
                 }
             });
             $('#ingredient_form').val('');
         });
     });
 });
+//
+// window.onload = function(){
+//     $(function() {
+//         $("#loading").fadeOut();
+//         $("#container").fadeIn();
+//     });
+// }

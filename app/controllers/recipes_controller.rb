@@ -10,12 +10,6 @@ class RecipesController < ApplicationController
   end
 
   def new
-
-    # @query = Ingredient.ransack(params[:q])
-    # @ingredients = @query.result
-    # if params[:q].present?
-    #   render json:  @ingredients.select("name").map { |e| e.title  }.to_json
-    # end
     @recipe = Recipe.new
     @ingredient_relation = @recipe.ingredient_relations.build
     @direction = @recipe.directions.build
@@ -23,8 +17,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
-    @recipe.valid?
     Rails::logger::debug(@recipe.errors.messages)
     @recipe.save!
     redirect_to root_path

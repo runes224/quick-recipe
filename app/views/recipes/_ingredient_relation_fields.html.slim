@@ -1,15 +1,22 @@
-.nested-fields
-  .form-row
-    .col.hide
-      = f.input :id
-    .col
-      div#ingredient_name
-    .col
-      = f.input :display_ingredient_name, label: false
-    .col
-      = f.input :display_weight_name
-    .col
-      = f.input :weight
-    .col
-      br
+.nested-fields.card style="margin-bottom: 7px;"
+  .card-header.py-0 style="display: flex;"
+    div 材料：
+    div.ingredient_name
+    div style="margin-left: auto;"
       = link_to_remove_association '❌', f
+  .card-body.py-0.pr-0
+    .form-row
+      .hide
+        = f.input :id, label: false
+      .col-5
+        div 材料の表示
+        = f.input :display_ingredient_name, label: false
+      .col-4
+        div 分量の表示
+        = f.input :display_weight_name, label: false
+      .col-2
+        div 重量
+        div style="display: flex;"
+          = f.input :weight, label: false
+          div g
+

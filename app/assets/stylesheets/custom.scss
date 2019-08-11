@@ -218,21 +218,10 @@ input {
   margin: 0 auto;
 }
 
-//// 子モデルのフォーム名の非表示
-//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(1) > div > label,
-//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(2) > div > label,
-//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(3) > div > label,
-//#second-form > div:nth-child(1) > div.nested-fields > div > div:nth-child(4) > div > label,
-//#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(1) > div > label,
-//#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div.nested-fields > div > div:nth-child(2) > div > label,
-//#second-form > div:nth-child(1) > div:nth-child(7) > div > div:nth-child(5) > div > label {
-//  display: none;
-//}
-
-
 // 手順テーブル1項目目と2項目目の幅を合わせる
-#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2) {
-  height: 90px;
+#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2),
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div:nth-child(2) {
+  height: 60px;
 }
 
 
@@ -348,3 +337,20 @@ abbr {
 .hide {
   display: none;
 }
+
+#recipe_directions_attributes_0_number {
+  position: absolute;
+  bottom: 30px;
+}
+
+.container {
+  padding: 0;
+}
+
+//#container{display:none;}
+//#loading{
+//  position:absolute;
+//  left:50%;
+//  top:20%;
+//  margin-left:-30px;
+//}
