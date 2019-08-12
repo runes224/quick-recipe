@@ -21,7 +21,8 @@ h2#sub-title.pt-0
 .wrapper.grid
   - @recipes.each do |recipe|
     .card
-      = image_tag recipe.image_url, class: "card-img-top"
+      a href=recipe_path(recipe)
+        = image_tag recipe.image_url, class: "card-img-top"
       .card-body.px-2.py-0
         .card-text
           | P 12.3g

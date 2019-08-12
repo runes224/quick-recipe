@@ -1,45 +1,66 @@
 - provide(:title, @recipe.name)
-h1
+h1#text_pink
   = @recipe.name
-= @recipe.description
-h2
-  |  材料 
-table.table
-  thead
-    tr
-      th
-        | 材料名
-      th
-        | 量
-      th
-        | カロリー
-      th
-        | 炭水化物
-      th
-        | タンパク質
-      th
-        | 脂質
-      th
-        | 塩分
-  tbody
-    - @recipe.ingredient_relations.zip(@recipe.ingredients) do |r, t|
-      tr
-        th
-          = r.display_ingredient_name
-        th
-          = r.display_weight_name
-        th
-          = t.calorie
-        th
-          = t.carbohydrate
-        th
-          = t.protein
-        th
-          = t.lipid
-        th
-          = t.salt
-- @recipe.directions.each do |d|
-  .card
-    .card-body
-      = d.number
-      = d.content
+.container.mb-30
+  .row.mb-30
+    .col-md-8.mb-30
+      = image_tag @recipe.image_url, class: "card-img-top", style: "border-radius: 10px;"
+    .col-md-4.mb-30
+      div style="padding-bottom: 30px;"
+        h5 = @recipe.description
+        .float-right
+           = "作成者：#{@recipe.user.name}"
+      .card
+        h5.card-header 栄養素(1食あたり)
+        table.table.mb-0.table-striped
+          thead
+            tr
+              th エネルギー
+              th #{@total_calorie.round(1)} kcal
+            tr
+              th たんぱく質
+              th #{@total_protein.round(1)} g
+            tr
+              th 脂質
+              th #{@total_lipid.round(1)} g
+            tr
+              th 炭水化物
+              th #{@total_carbohydrate.round(1)} g
+            tr
+              th 食塩相当量
+              th #{@total_salt.round(1)} g
+.container
+  .row
+    .col-md-6.mb-30
+      .card.pb-0
+        .card-header.pb-0
+          h3 材料(4人分)
+        table.table.mb-0.table-striped.table-sm
+          thead
+            tr
+              th
+                | 材料名
+              th
+                | 分量
+              th
+                | 重さ
+          tbody
+            - @recipe.ingredient_relations.each do |r|
+              tr
+                th
+                  = r.display_ingredient_name
+                th
+                  = r.display_weight_name
+                th
+                  = "#{r.weight}g"
+    .col-md-6.mb-30
+      - @recipe.directions.each do |d|
+        .card
+          .card-body style="display: flex;"
+            div style="padding-right: 20px;"
+              h4 = d.number
+            div
+              = d.content
+sass:
+  body
+    background-color: #fff8dc

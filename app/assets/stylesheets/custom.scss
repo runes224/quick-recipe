@@ -137,7 +137,7 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-.row {
+.bg-white {
   background-color: #FAF7F7;
 }
 
@@ -154,15 +154,6 @@ input {
 }
 
 /* home */
-
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 4;
-  }
-}
 
 .grid {
   display: grid;
@@ -347,10 +338,12 @@ abbr {
   padding: 0;
 }
 
-//#container{display:none;}
-//#loading{
-//  position:absolute;
-//  left:50%;
-//  top:20%;
-//  margin-left:-30px;
-//}
+#text_pink {
+  color: #E86B88;
+}
+
+/* レシピ詳細 */
+
+.mb-30 {
+  margin-bottom: 30px;
+}

@@ -7,6 +7,18 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @total_calorie = 0
+    @total_carbohydrate = 0
+    @total_protein = 0
+    @total_lipid = 0
+    @total_salt = 0
+    @recipe.ingredient_relations.zip(@recipe.ingredients) do |r, t|
+      @total_calorie += r.weight * (t.calorie / 100)
+      @total_carbohydrate += r.weight * (t.carbohydrate / 100)
+      @total_protein += r.weight * (t.protein / 100)
+      @total_lipid += r.weight * (t.lipid / 100)
+      @total_salt += r.weight * (t.salt / 100)
+    end
   end
 
   def new

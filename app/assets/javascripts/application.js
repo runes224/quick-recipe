@@ -97,7 +97,7 @@ $(function () {
 
         $.ajax({
             type: 'GET', // リクエストのタイプはGETです
-            url: '/recipes', // URLは"/ingredients"を指定します
+            url: '/recipes',
             data: {keyword: input}, // コントローラへフォームの値を送信します
             dataType: 'json' // データの型はjsonで指定します
         })
