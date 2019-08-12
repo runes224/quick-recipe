@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="651ce289-2b84-4f3f-a8e2-e4135e0b45b6" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/app/assets/images/sample.gif" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/views/recipes/_ingredient_mordal.html.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -14,6 +15,11 @@
       <change beforePath="$PROJECT_DIR$/app/models/recipe.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/recipe.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/recipes/_ingredient_relation_fields.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/recipes/_ingredient_relation_fields.html.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/recipes/new.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/recipes/new.html.slim" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/recipie_app2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/recipie_app2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ingredient_relation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ingredient_relation.rb" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,6 +50,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
+<<<<<<< Updated upstream
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/recipes_controller.rb">
@@ -59,15 +66,30 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="5" column="89" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/recipes_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
               <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/models/recipe.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -75,8 +97,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/ingredient_relation.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="147">
               <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+=======
+            <state relative-caret-position="105">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -121,6 +148,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/spec/requests/user_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/support/utilities.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190724223848_drop_user.rb" />
+        <option value="$PROJECT_DIR$/spec/support/controller_macros.rb.rb" />
+        <option value="$PROJECT_DIR$/spec/rails_helper.rb" />
+        <option value="$PROJECT_DIR$/spec/support/controller_macros.rb" />
+        <option value="$PROJECT_DIR$/config/environments/development.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/test/factories/users.rb" />
@@ -144,6 +182,11 @@
         <option value="$PROJECT_DIR$/config/environment.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/uploaders/image_uploader.rb" />
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/app/views/recipes/new.html.slim" />
+        <option value="$PROJECT_DIR$/config/locales/model.ja.yml" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.slim" />
         <option value="$PROJECT_DIR$/db/seeds/recipe.rb" />
@@ -169,8 +212,13 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
         <option value="$PROJECT_DIR$/app/views/recipes/_ingredient_mordal.html.slim" />
         <option value="$PROJECT_DIR$/app/views/static_pages/home.html.slim" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/app/models/ingredient_relation.rb" />
         <option value="$PROJECT_DIR$/app/models/recipe.rb" />
+=======
+        <option value="$PROJECT_DIR$/db/migrate/20190615031023_rename_display_weght_name_column_to_ingredinent_relations.rb" />
+        <option value="$PROJECT_DIR$/app/models/ingredient_relation.rb" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/controllers/recipes_controller.rb" />
       </list>
     </option>
@@ -366,11 +414,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< Updated upstream
       <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/db" />
       <recent name="$PROJECT_DIR$/db/fixtures" />
       <recent name="$PROJECT_DIR$/test/factories" />
+=======
+      <recent name="$PROJECT_DIR$/db" />
+      <recent name="$PROJECT_DIR$/db/fixtures" />
+      <recent name="$PROJECT_DIR$/test/factories" />
+      <recent name="$PROJECT_DIR$/spec/models" />
+      <recent name="$PROJECT_DIR$/spec/requests" />
+>>>>>>> Stashed changes
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/spec/system" />
@@ -842,7 +898,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="258574000" />
+=======
+    <option name="totallyTimeSpent" value="160516000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -985,6 +1045,7 @@
     <SUITE FILE_PATH="coverage/recipie_app2@Development__recipie_app2.rcov" NAME="Development: recipie_app2 Coverage Results" MODIFIED="1563571508915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="recipie_app2" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/db/fixtures/02_recipe.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -993,6 +1054,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/factories/users.rb">
+=======
+    <entry file="file://$PROJECT_DIR$/config.ru">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="38" />
@@ -1115,6 +1179,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/db/migrate/20190609081831_create_ingredients.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1129,6 +1194,9 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new.html.slim">
+=======
+    <entry file="file://$PROJECT_DIR$/test/factories/users.rb">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
@@ -1151,6 +1219,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ingredient_relations.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -1159,6 +1228,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.slim">
+=======
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
@@ -1269,7 +1341,26 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190724224300_create_users.rb" />
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190724223848_drop_user.rb" />
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190725201246_add_name_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190725120847_devise_create_users.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190609213826_create_my_recipes.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190609213910_create_ingredient_relations.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190608034827_add_password_digest_to_users.rb" />
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190609213429_create_recipes.rb">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
@@ -1294,6 +1385,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/recipe.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ingredient_relation.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/recipes_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

@@ -11,8 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery.turbolinks
-//= require activestorage
+    //= require activestorage
 //= require_tree.
 //= require popper
 //= require bootstrap
@@ -138,7 +137,7 @@ $(function () {
             var val = $(this).val();
             var tex = $(this).text();
             $('#myModal').modal('hide');
-            $('[id^="recipe_ingredient_relations_attributes_"][id*="_id"]').each(function () {
+            $('[id^="recipe_ingredient_relations_attributes_"][id*="_ingredient_id"]').each(function () {
                 if ($(this).val() == "") {
                     $(this).val(val);
                 }

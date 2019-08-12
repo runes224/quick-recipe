@@ -12,7 +12,6 @@ class IngredientRelationsController < ApplicationController
   private
 
   def ingredient_relation_params
-    # params.require(:recipe).permit(:name, :description, directions_attributes: [:number, :content])
     params.permit(:ingredient_id, :weight, :display_weight_name, :display_ingredient_name)
   end
 end
