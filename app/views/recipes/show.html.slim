@@ -8,8 +8,8 @@ h1#text_pink
     .col-md-4.mb-30
       div.mb-30
         h5 = @recipe.description
-        .float-right
-           = "作成者：#{@recipe.user.name}"
+          .float-right
+             = "作成者：#{@recipe.user.name}"
       .card
         h5.card-header 栄養素(1食あたり)
         table.table.mb-0.table-striped
@@ -29,6 +29,9 @@ h1#text_pink
             tr
               th 食塩相当量
               th #{@total_salt.round(1)} g
+      div
+       - if current_user == @recipe.user
+         = link_to "編集する", edit_recipe_path
 .container
   .row
     .col-md-6.mb-30

@@ -194,7 +194,6 @@ input {
 
 #img1 {
   width: 100%;
-  height: 300px;
   background-color: #ffffff;
   border-radius: 10px;
 }
@@ -346,4 +345,10 @@ abbr {
 
 .mb-30 {
   margin-bottom: 30px;
+}
+
+//ボタンの固定
+.bottom_btn {
+  position: relative;
+  bottom: 0;
 }

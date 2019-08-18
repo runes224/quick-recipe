@@ -33,6 +33,24 @@ class RecipesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+      @ingredient_ids = @recipe.ingredient_ids
+    @ingredient_ids.map! {|item|  Ingredient.find_by(id: item).name }
+    @i = 0
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      flash.now[:alert] = @article.errors.full_messages.join('。')
+      render :edit
+    end
+    @recipe = Recipe.find(params[:id])
+  end
+
   private
 
   def recipe_params

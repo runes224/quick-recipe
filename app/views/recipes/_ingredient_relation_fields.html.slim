@@ -2,6 +2,9 @@
   .card-header.py-0 style="display: flex;"
     div 材料：
     div.ingredient_name
+      - if @ingredient_ids
+        = @ingredient_ids[@i]
+        - @i = @i + 1
     div style="margin-left: auto;"
       = link_to_remove_association '❌', f
   .card-body.py-0.pr-0

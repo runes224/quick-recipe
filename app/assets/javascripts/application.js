@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
-    //= require activestorage
+//= require activestorage
 //= require_tree.
 //= require popper
 //= require bootstrap
@@ -20,6 +20,8 @@
 //= require jquery-ui
 // = require rails-ujs
 
+
+// 画像
 $(function () {
     $('#myfile').change(function (e) {
         //ファイルオブジェクトを取得する
@@ -32,7 +34,14 @@ $(function () {
             return false;
         }
 
+        //既存の画像を非表示にして、追加した画像を表示する
+        if ($('#img1').hasClass('hide')) {
+            console.log("test");
+            $('#img1').removeClass('hide') // #img1を削除
+            $('#image_tag').addClass('hide') // #image_tagを削除
+        }
         //アップロードした画像を設定する
+
         reader.onload = (function (file) {
             return function (e) {
                 $("#img1").attr("src", e.target.result);
@@ -40,7 +49,6 @@ $(function () {
             };
         })(file);
         reader.readAsDataURL(file);
-
     });
 });
 
@@ -90,7 +98,7 @@ $(function () {
     });
 });
 
-
+// 材料検索時の処理
 $(function () {
     $("#submit_button").click(function () { //送信ボタンを押すとイベントが発火します
         var input = $("#ingredient_form").val(); // フォームの値を'input'という名前の変数に代入します
@@ -118,9 +126,11 @@ $(function () {
             })
     })
 
-    //材料入力 初回読み込み時のフォーム削除
-    $(function () {
-        document.querySelector("#second-form > div:nth-child(1) > div:nth-child(5) > div > div.card-header.py-0 > div:nth-child(3) > a").click();
+    //材料入力 初回読み込み時のフォーム削除（レシピ作成画面のみ）
+    $(function(){
+        if(document.URL.match(/new/)) {
+            document.querySelector("#second-form > div:nth-child(1) > div:nth-child(5) > div > div.card-header.py-0 > div:nth-child(3) > a").click();
+        }
     });
 
     var n = 0
@@ -158,10 +168,8 @@ $(function () {
         });
     });
 });
-//
-// window.onload = function(){
-//     $(function() {
-//         $("#loading").fadeOut();
-//         $("#container").fadeIn();
-//     });
-// }
+
+// レシピ編集画面 材料名の自動入力
+$(function(){
+
+});
