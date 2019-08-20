@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :create]
+
   def index
     @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
   end

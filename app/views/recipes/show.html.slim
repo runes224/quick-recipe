@@ -10,7 +10,7 @@ h1#text_pink
         h5 = @recipe.description
           .float-right
              = "作成者：#{@recipe.user.name}"
-      .card
+      .card.mb-30
         h5.card-header 栄養素(1食あたり)
         table.table.mb-0.table-striped
           thead
@@ -29,9 +29,18 @@ h1#text_pink
             tr
               th 食塩相当量
               th #{@total_salt.round(1)} g
+      div.d-flex
+        h5 マイレシピ数:#{@recipe.my_recipes.count}
+        - if current_user.already_liked?(@recipe)
+          = button_to 'マイレシピを解除', recipe_my_recipe_path(@recipe), method: :delete, class: "btn-primary"
+        - else
+          = button_to 'マイレシピに追加', recipe_my_recipes_path(@recipe), class: "btn-primary"
       div
-       - if current_user == @recipe.user
-         = link_to "編集する", edit_recipe_path
+        h2 いいねしたユーザー
+        - @recipe.added_recipes.each do |user|
+          li = user.name
+      - if current_user == @recipe.user
+        = link_to "編集する", edit_recipe_path
 .container
   .row
     .col-md-6.mb-30

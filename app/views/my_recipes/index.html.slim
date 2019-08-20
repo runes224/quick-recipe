@@ -1,12 +1,10 @@
-- provide(:title, "ホーム")
+- provide(:title, "マイレシピ")
 h1.pt-5.pb-0.mb-0
-  | QuickRecipe
-h2#sub-title.pt-0
-  | 素早く、健康的なレシピをお届けします。
+  | マイレシピ
 .container
   .row#background_color
     .col-sm-5.text-bottom
-      = paginate @recipes
+      = paginate @my_recipes
     .col-sm-5
       .input-group action="#"
         input.form-control type="text" placeholder="料理名・材料名..."
@@ -19,8 +17,8 @@ h2#sub-title.pt-0
       br
       | C = 炭水化物
 .wrapper.grid
-  - @recipes.each do |recipe|
-    - my_recipe = MyRecipe.find_by(recipe_id: recipe, user_id: current_user.id)
+  - @my_recipes.each do |my_recipe|
+    - recipe = my_recipe.recipe
     .card
       a href=recipe_path(recipe)
         = image_tag recipe.image_url, class: "card-img-top"
@@ -42,21 +40,21 @@ h2#sub-title.pt-0
             |  作成者 #{recipe.user.name}
 
 
-= paginate @recipes
+= paginate @my_recipes
 
 sass:
   h1
     color: #E86B88
     font-family: Corsiva Hebrew, sans-serif
-    font-size: 10vw
+    font-size: 7vw
 
-  h2
-    color: #FFFFFF
-    font-family: Helvetica Neue, monospace
-    font-size: 3vw
+    h2
+      color: #FFFFFF
+      font-family: Helvetica Neue, monospace
+      font-size: 3vw
 
-    .input-group-btn
-      width: 15px
+      .input-group-btn
+        width: 15px
 
-  .btn
-    color: #E86B88;
+    .btn
+      color: #E86B88;
