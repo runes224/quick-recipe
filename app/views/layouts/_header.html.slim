@@ -15,7 +15,7 @@ nav.navbar.navbar-expand-md.navbar-dark style="background-color:#151515;"
             | アカウント
           .dropdown-menu aria-labelledby="navbarDropdown"
             = link_to "ユーザ設定", edit_user_registration_path(current_user), class: "nav-link text-dark"
-            = link_to "登録情報", "users/#{current_user.id}", class: "nav-link text-dark"
+            = link_to "登録情報", user_path(current_user), class: "nav-link text-dark"
             .dropdown-divider
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark"
   - else

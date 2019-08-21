@@ -51,10 +51,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-
-}
-
 #sub-title {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -114,13 +110,14 @@ footer ul li {
   @include box_sizing;
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
 .gravatar_edit {
   margin-top: 15px;
+  height: 120px;
+  width: 120px;
+}
+.gravatar {
+  height: 120px;
+  width: 120px;
 }
 
 /* forms */
@@ -195,6 +192,13 @@ input {
 #img1 {
   width: 100%;
   background-color: #ffffff;
+  border-radius: 10px;
+}
+
+#user_information {
+  height: 140px;
+  width: 100%;
+  background-color: #efecec;
   border-radius: 10px;
 }
 
@@ -351,4 +355,35 @@ abbr {
 .bottom_btn {
   position: relative;
   bottom: 0;
+}
+
+.bg-gray {
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+#user_information {
+  font-size: larger;
+}
+
+.btn {
+  width: 200px;
+  border-radius: 5px;
+}
+
+.btn-wrapper {
+  text-align: center;
+}
+
+.field {
+  width: 80%;
+  margin: 0 auto;
 }

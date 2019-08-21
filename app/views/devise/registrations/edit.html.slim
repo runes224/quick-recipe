@@ -1,46 +1,48 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :name
-    br
-    = f.text_field :name, class: "form-control", placeholder: "名前"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
+- provide(:title, "登録情報の変更")
+h1 登録情報の変更
+
+.container.bg-gray style="padding: 30px 0px 0px 20px;"
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :email
       br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :name
+      br
+      = f.text_field :name, class: "form-control", placeholder: "名前"
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      div
+        | Currently waiting confirmation for:
+        = resource.unconfirmed_email
+    .field
+      = f.label :current_password
+      br
+      = f.password_field :current_password, autocomplete: "current-password", placeholder: "入力必須"
+    .field
+      = f.label :password
+      i
+        | (パスワードを変更しない場合は入力不要)
+      br
+      = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数#{@minimum_password_length}文字以上"
+      - if @minimum_password_length
+    .field
+      = f.label :password_confirmation
+      br
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions.mb-30.btn-wrapper
+      = f.submit "Update", class: "btn btn-primary"
+hr
+h3 登録情報の削除
+.float-right.text-right
+  = button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除して大丈夫ですか?" }, method: :delete, class: "btn btn-danger", style: "position: relative;"
+br
+br
+= link_to "戻る", :back
+
+sass:
+  h1
+    font-family: Corsiva Hebrew, sans-serif
+    font-size: 3vw
+    color: #E86B88;
