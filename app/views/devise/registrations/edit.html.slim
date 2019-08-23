@@ -1,14 +1,14 @@
 - provide(:title, "登録情報の変更")
-h1 登録情報の変更
+h1 style="font-size: 3vw;" 登録情報の変更
 
 .container.bg-gray style="padding: 30px 0px 0px 20px;"
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "devise/shared/error_messages", resource: resource
-    .field
+    .field.edit_field
       = f.label :email
       br
       = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
+    .field.edit_field
       = f.label :name
       br
       = f.text_field :name, class: "form-control", placeholder: "名前"
@@ -16,23 +16,23 @@ h1 登録情報の変更
       div
         | Currently waiting confirmation for:
         = resource.unconfirmed_email
-    .field
+    .field.edit_field
       = f.label :current_password
       br
       = f.password_field :current_password, autocomplete: "current-password", placeholder: "入力必須"
-    .field
+    .field.edit_field
       = f.label :password
       i
         | (パスワードを変更しない場合は入力不要)
       br
       = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数#{@minimum_password_length}文字以上"
       - if @minimum_password_length
-    .field
+    .field.edit_field
       = f.label :password_confirmation
       br
       = f.password_field :password_confirmation, autocomplete: "new-password"
     .actions.mb-30.btn-wrapper
-      = f.submit "Update", class: "btn btn-primary"
+      = f.submit "Update", class: "btn btn-primary btn-custom"
 hr
 h3 登録情報の削除
 .float-right.text-right
@@ -40,9 +40,3 @@ h3 登録情報の削除
 br
 br
 = link_to "戻る", :back
-
-sass:
-  h1
-    font-family: Corsiva Hebrew, sans-serif
-    font-size: 3vw
-    color: #E86B88;

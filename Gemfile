@@ -35,6 +35,9 @@ gem 'cocoon'
 gem 'simple_form'
 gem 'ransack'
 gem 'jquery-turbolinks'
+gem 'materialize-sass'
+gem 'material_icons'
+gem 'mechanize'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

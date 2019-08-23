@@ -2,22 +2,13 @@
 h1
   | レシピの編集
 = simple_form_for(@recipe) do |f|
-  - if @recipe.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@recipe.errors.count, "error")
-        prohibited this recipe from being saved:
-      ul
-        - @recipe.errors.full_messages.each do |message|
-          li= message
   .container
     .row
-      / .col-md-6
       .col-md-8.mb-30
         .field#myfile
           = f.input :image
-          img#img1.hide.card-img-top
-        = image_tag @recipe.image_url, class: "card-img-top",id: "image_tag", style: "border-radius: 10px;" if @recipe.image?
+          img#img1.img_max.hide.card-img-top
+        = image_tag @recipe.image_url, class: "card-img-top img_max",id: "image_tag", style: "border-radius: 10px; cursor : pointer;" if @recipe.image?
       .col-md-4.mb-30
         .field
           = f.input :name
@@ -47,10 +38,4 @@ h1
             = render 'direction_fields', f: direction, class: "Sortable"
           .field
             = link_to_add_association '+', f, :directions, class: "btn-circle-3d  mx-auto d-block"
-  = f.submit '登録', class: "btn btn-primary mx-auto d-block"
-
-sass:
-  .row
-    background-color: #fff8dc
-  body
-    background-color: #fff8dc
+  = f.submit '登録', class: "btn btn-primary mx-auto d-block btn-custom", style: "margin-top: 30px;"

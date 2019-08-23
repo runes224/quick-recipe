@@ -1,5 +1,4 @@
 @import "bootstrap";
-
 /*
  *= require jquery.ui.all
  *= require_tree .
@@ -49,6 +48,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  padding-top: 30px;
 }
 
 #sub-title {
@@ -80,6 +80,7 @@ footer {
   color: #ffffff;
   background-color: #151515;
   width: 100%;
+  position: absolute;
 }
 
 footer a {
@@ -348,7 +349,7 @@ abbr {
 /* レシピ詳細 */
 
 .mb-30 {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 
 //ボタンの固定
@@ -374,7 +375,7 @@ abbr {
   font-size: larger;
 }
 
-.btn {
+.btn-custom {
   width: 200px;
   border-radius: 5px;
 }
@@ -384,6 +385,94 @@ abbr {
 }
 
 .field {
-  width: 80%;
   margin: 0 auto;
 }
+
+.b-5 {
+  position: relative;
+  bottom: 5px;
+}
+
+.t-gray {
+  color: #777777;
+}
+
+
+.show-edit-delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #777777;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}
+
+h1 {
+  font-family: Corsiva Hebrew, sans-serif;
+  color: #E86B88;
+}
+
+.edit_field {
+  width: 80%;
+}
+
+h2 {
+  color: #000000;
+  font-family: Helvetica Neue;
+  font-size: 3vw;
+}
+
+.input-group-btn {
+  width: 15px;
+}
+
+.pink {
+  color: #E86B88;
+}
+
+.btn-search {
+  width: 100px;
+}
+
+#recipe_search {
+  display: flex;
+  height: 55px;
+}
+
+.tile_img {
+  max-width: 300px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.tile_card {
+  max-width: 300px;
+  object-fit: contain;
+}
+
+.img_max {
+  max-width: 800px;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.notifications {
+  color: $white;
+  text-align: center;
+
+  .notice {
+    background: #0086b3;
+  }
+
+  .alert {
+    background: #ffcc00;
+  }
+}
+

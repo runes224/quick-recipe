@@ -11,9 +11,20 @@ h1 ログイン
           = f.label :password
           = f.password_field :password, autocomplete: "current-password", class: 'form-control'
         - if devise_mapping.rememberable?
-          .field
-            = f.check_box :remember_me
-            = f.label :remember_me
+          .field.form-check
+            .float-left.mb-30
+              = f.label :remember_me, class: "form-check-label"
+            .float-left.mb-30
+              = f.check_box :remember_me, class: "form-check-input"
         .actions
           = f.submit "ログイン", class: "btn btn-primary"
         = render "devise/shared/links"
+sass:
+  #user_remember_me
+    height: 20px !important
+    width: 266px;
+  .float-left
+    float: left
+  .form-check-label
+    position: absolute
+    left: 0

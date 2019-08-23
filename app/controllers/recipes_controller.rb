@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create]
+  before_action :authenticate_user!, only: %i[index new create edit update destroy]
 
   def index
+    agent = Mechanize.new
+    hiragana = agent.get('https://yomikatawa.com/kanji/' + params[:keyword]).search('#content p')[0].inner_text
     @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
+                             .or(Ingredient.where("name LIKE(?)", "%#{hiragana}%"))
   end
 
   def show
@@ -31,8 +34,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
-    @recipe.save!
-    redirect_to root_path
+    if @recipe.save
+      redirect_to recipe_path(@recipe), notice: "「#{@recipe.name}」を作成しました。"
+    else
+      flash.now[:alert] = @recipe.errors.full_messages.join('。')
+      render :new
+    end
   end
 
   def edit
@@ -45,12 +52,22 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe), notice: "「#{@recipe.name}」を更新しました。"
     else
       flash.now[:alert] = @article.errors.full_messages.join('。')
       render :edit
     end
     @recipe = Recipe.find(params[:id])
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    if @recipe.destroy!
+      redirect_to root_path, notice: ("「#{@recipe.name}」を削除しました")
+    else
+      flash.now[:alert] = @recipe.errors.full_messages.join('。')
+      render :show
+    end
   end
 
   private

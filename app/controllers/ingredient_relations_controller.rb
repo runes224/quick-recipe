@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class IngredientRelationsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     # user_params = params.permit(:name, :email)
     @recipe = Recipe.find_by(id: session[:recipe_id])

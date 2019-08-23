@@ -20,6 +20,12 @@
 //= require jquery-ui
 // = require rails-ujs
 
+$(function () {
+    $(document).on('click', '#image_tag', function () {
+        document.querySelector("#recipe_image").click();
+    });
+});
+
 
 // 画像
 $(function () {
@@ -36,7 +42,6 @@ $(function () {
 
         //既存の画像を非表示にして、追加した画像を表示する
         if ($('#img1').hasClass('hide')) {
-            console.log("test");
             $('#img1').removeClass('hide') // #img1を削除
             $('#image_tag').addClass('hide') // #image_tagを削除
         }
@@ -138,12 +143,12 @@ $(function () {
     $(function () {
         $(document).on('click', '#submit_button', function () {
             $('#open_modal').click();
-            $('#add_ingredient_field').click();
         });
     });
 // 材料選択時の処理
     $(function () {
         $(document).on('click', '#ingredient-search-results li', function () {
+            $('#add_ingredient_field').click();
             var val = $(this).val();
             var tex = $(this).text();
             $('#myModal').modal('hide');
@@ -169,7 +174,13 @@ $(function () {
     });
 });
 
-// レシピ編集画面 材料名の自動入力
+// 検索フォーム入力時のenterでsubmitしない
 $(function(){
-
+    $("input"). keydown(function(e) {
+        if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+            return false;
+        } else {
+            return true;
+        }
+    });
 });

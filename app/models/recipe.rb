@@ -11,4 +11,13 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :ingredient_relations
   validates :name, presence: true, length: {maximum: 50}
   mount_uploader :image, ImageUploader
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name]
+  end
+
+  def self.ransackable_assotiations(auth_object = nil)
+    %w[ingredients]
+  end
+
 end

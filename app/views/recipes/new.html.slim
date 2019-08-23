@@ -2,20 +2,13 @@
 h1
   | レシピの投稿
 = simple_form_for(@recipe) do |f|
-  - if @recipe.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@recipe.errors.count, "error")
-        prohibited this recipe from being saved:
-      ul
-        - @recipe.errors.full_messages.each do |message|
-          li= message
   .container
     .row
       .col-md-6
         .field#myfile
           = f.input :image
-          img#img1
+          img#img1.hide.img_max
+        = image_tag 'no_image.jpeg', class: "card-img-top cursor img_max",id: "image_tag", style: "border-radius: 10px; cursor : pointer;"
       .col-md-6
         .field
           = f.input :name
@@ -23,7 +16,7 @@ h1
   .container
     .row#second-form
       .col-md-6
-        h2 材料
+        h2 材料(１人分)
         .form-row
           .search_box
           .col-md-10
@@ -47,6 +40,6 @@ h1
           = link_to_add_association '+', f, :directions, class: "btn-circle-3d  mx-auto d-block"
   = f.submit '登録', class: "btn btn-primary mx-auto d-block"
 
-sass:
-  .row
-    background-color: #F9D777;
+  sass:
+    h2
+      color: #1c2324;

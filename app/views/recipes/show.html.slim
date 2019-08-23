@@ -4,7 +4,7 @@ h1#text_pink
 .container.mb-30
   .row.mb-30
     .col-md-8.mb-30
-      = image_tag @recipe.image_url, class: "card-img-top", style: "border-radius: 10px;"
+      = image_tag @recipe.image_url, class: "card-img-top img_max", style: "border-radius: 10px;"
     .col-md-4.mb-30
       div.mb-30
         h5 = @recipe.description
@@ -29,18 +29,20 @@ h1#text_pink
             tr
               th 食塩相当量
               th #{@total_salt.round(1)} g
-      div.d-flex
-        h5 マイレシピ数:#{@recipe.my_recipes.count}
-        - if current_user.already_liked?(@recipe)
-          = button_to 'マイレシピを解除', recipe_my_recipe_path(@recipe), method: :delete, class: "btn-primary"
-        - else
-          = button_to 'マイレシピに追加', recipe_my_recipes_path(@recipe), class: "btn-primary"
       div
-        h2 いいねしたユーザー
-        - @recipe.added_recipes.each do |user|
-          li = user.name
-      - if current_user == @recipe.user
-        = link_to "編集する", edit_recipe_path
+        h5 マイレシピ数:#{@recipe.my_recipes.count}
+        .right
+          - if user_signed_in?
+            - if current_user.already_liked?(@recipe)
+              = link_to 'マイレシピを解除', recipe_my_recipe_path(@recipe), method: :delete, class: "b-5 btn btn-sm btn-outline-danger"
+            - else
+              = link_to 'マイレシピに追加', recipe_my_recipes_path(@recipe),method: :post, class: "b-5 btn btn-sm btn-outline-primary"
+      div.show-edit-delete
+        - if current_user == @recipe.user
+          i class="material-icons" edit
+          = link_to "編集する", edit_recipe_path, class: "b-5 pr-10 t-gray"
+          i class="material-icons" delete_forever
+          = link_to "削除する", recipe_path(@recipe), method: :delete, class: "b-5 t-gray"
 .container
   .row
     .col-md-6.mb-30

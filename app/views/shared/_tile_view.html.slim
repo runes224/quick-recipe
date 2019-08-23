@@ -1,0 +1,56 @@
+.container
+  .row#background_color
+    .col-md-5.text-bottom
+      = paginate @recipes
+      .form-group.row
+    .col-md-5
+      = search_form_for(@q, url:root_path)  do |f|
+        = f.label :name_or_ingredients_name_cont, class: 'form-control hide', label: false
+        = f.search_field :name_or_ingredients_name_cont, class: 'form-control', placeholder: "料理名・材料名..."
+        = f.submit class: 'btn btn btn-light btn-search pink'
+      .form-group
+    .col-md-2.float-right.text-left style="position: relative; right: 0;"
+      | カロリー(１人分)
+      br
+      | P = タンパク質
+      br
+      | F = 脂質
+      br
+      | C = 炭水化物
+.wrapper.grid
+  - @recipes.each do |recipe|
+    - total_calorie = 0
+    - total_carbohydrate = 0
+    - total_protein = 0
+    - total_lipid = 0
+    - recipe.ingredient_relations.zip(recipe.ingredients) do |r, t|
+      - total_calorie += r.weight * (t.calorie / 100)
+      - total_carbohydrate += r.weight * (t.carbohydrate / 100)
+      - total_protein += r.weight * (t.protein / 100)
+      - total_lipid += r.weight * (t.lipid / 100)
+    .card.tile_card
+      a href=recipe_path(recipe)
+        = image_tag recipe.image_url, class: "card-img-top tile_img"
+      .card-body.px-2.pb-0.pt-2
+        .card-text
+          u
+           | #{total_calorie.round(0)} kcal
+          .float-right.text-right style="height: 24px;"
+            - if user_signed_in?
+              - my_recipe = MyRecipe.find_by(recipe_id: recipe, user_id: current_user.id)
+              - if current_user.already_liked?(recipe)
+                = link_to 'マイレシピを解除', recipe_my_recipe_path(recipe, my_recipe), method: :delete, class: "btn btn-sm btn-outline-danger"
+              - else
+                = link_to 'マイレシピに追加', recipe_my_recipes_path(recipe),method: :post, class: "btn btn-sm btn-outline-primary"
+          br
+          |  P #{total_protein.round(1)} g
+          .float-right.text-right
+            |  マイレシピ数：#{recipe.my_recipes.count}
+          br
+          |  F #{total_lipid.round(1)} g
+          .float-right.text-right
+            |  作成者 #{recipe.user.name}
+          br
+          |  C #{total_carbohydrate.round(1)} g
+
+= paginate @recipes
