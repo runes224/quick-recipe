@@ -44,13 +44,13 @@
                 = link_to 'マイレシピに追加', recipe_my_recipes_path(recipe),method: :post, class: "btn btn-sm btn-outline-primary"
           br
           |  P #{total_protein.round(1)} g
-          .float-right.text-right
-            |  マイレシピ数：#{recipe.my_recipes.count}
           br
           |  F #{total_lipid.round(1)} g
           .float-right.text-right
-            |  作成者 #{recipe.user.name}
+            |  マイレシピ数：#{recipe.my_recipes.count}
           br
           |  C #{total_carbohydrate.round(1)} g
+          .float-right.text-right
+            |  作成者 #{recipe.user.name}
 
 = paginate @recipes
