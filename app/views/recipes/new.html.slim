@@ -4,12 +4,12 @@ h1
 = simple_form_for(@recipe) do |f|
   .container
     .row
-      .col-md-6
+      .col-md-6.mb-30
         .field#myfile
           = f.input :image
           img#img1.hide.img_max
         = image_tag 'no_image.jpeg', class: "card-img-top cursor img_max",id: "image_tag", style: "border-radius: 10px; cursor : pointer;"
-      .col-md-6
+      .col-md-6.mb-30
         .field
           = f.input :name
           = f.input :description, as: :text
@@ -32,14 +32,10 @@ h1
         .field
           = link_to_add_association '+', f, :ingredient_relations, class: "btn-circle-3d  mx-auto d-block", id: "add_ingredient_field"
       .col-md-6.js-direction.sortable
-        h2 手順
+        h2.unsortable 手順
         .field
           = f.simple_fields_for :directions do |direction|
             = render 'direction_fields', f: direction, class: "Sortable"
-        .field
+        .field.unsortable
           = link_to_add_association '+', f, :directions, class: "btn-circle-3d  mx-auto d-block"
   = f.submit '登録', class: "btn btn-primary mx-auto d-block"
-
-  sass:
-    h2
-      color: #1c2324;

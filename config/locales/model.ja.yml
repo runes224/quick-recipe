@@ -5,6 +5,7 @@ ja:
       recipe: レシピ # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
       ingredient_relation: レシピと材料の関係 # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
       direction: 手順
+      ingredient: 材料
     attributes:
       user:
         id: ID
@@ -30,8 +31,11 @@ ja:
         display_ingredient_name: 材料表示
         created_at: 作成日
         updated_at: 更新日
-      direction:
+      recipe/directions:
         recipe_id: レシピID
         content: 作り方
         number: 番号
+      ingredient:
+        name: 名前 # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+
 

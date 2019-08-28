@@ -5,9 +5,14 @@ class RecipesController < ApplicationController
 
   def index
     agent = Mechanize.new
-    hiragana = agent.get('https://yomikatawa.com/kanji/' + params[:keyword]).search('#content p')[0].inner_text
-    @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
-                             .or(Ingredient.where("name LIKE(?)", "%#{hiragana}%"))
+    begin
+      hiragana = agent.get('https://yomikatawa.com/kanji/' + params[:keyword]).search('#content p')[0].inner_text
+    rescue
+      @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
+      render :index
+    end
+      @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
+                               .or(Ingredient.where("name LIKE(?)", "%#{hiragana}%"))
   end
 
   def show

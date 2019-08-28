@@ -20,6 +20,7 @@
 //= require jquery-ui
 // = require rails-ujs
 
+// レシピ作成画面 画像クリック時にファイル選択
 $(function () {
     $(document).on('click', '#image_tag', function () {
         document.querySelector("#recipe_image").click();
@@ -86,11 +87,11 @@ $(function () {
 
 // Sortable
 $(function () {
-    $(".sortable").sortable({});
+    // $(".sortable").sortable({});
+    $(".sortable").sortable({items: '> div:not(.unsortable)' });
 });
 
 $(function () {
-    $(".sortable").disableSelection();
 });
 
 $(function () {
@@ -115,7 +116,9 @@ $(function () {
             dataType: 'json' // データの型はjsonで指定します
         })
             .done(function (data) {
+
                 // 通信に成功した場合の処理です
+                $('#loading').hide();
                 $('#ingredient-search-results').empty(); //前回の検索結果が残っている場合はそれを消します
                 for (var i = 0; i < data.length; i++) {
                     let op = document.createElement("li");
@@ -123,11 +126,20 @@ $(function () {
                     op.append(data[i].name);
                     document.getElementById("ingredient-search-results").appendChild(op);
                 }
+                if (i == 0) {
+                    let op = document.createElement("p");
+                    op.append("検索条件に一致するデータが見つかりませんでした");
+                    document.getElementById("ingredient-search-results").appendChild(op);
+                }
                 //データは配列形式でかえってくるので、forEachで繰り返し処理をします
             })
             .fail(function () {
                 // 通信に失敗した場合の処理です
-                alert('検索に失敗しました') // alertで検索失敗の旨を表示します
+                $('#loading').hide();
+                $('#ingredient-search-results').empty(); //前回の検索結果が残っている場合はそれを消します
+                let op = document.createElement("p");
+                op.append("検索に失敗しました");
+                document.getElementById("ingredient-search-results").appendChild(op);
             })
     })
 

@@ -81,6 +81,7 @@ footer {
   background-color: #151515;
   width: 100%;
   position: absolute;
+  bottom: 0;
 }
 
 footer a {
@@ -208,9 +209,10 @@ input {
   top: 0;
 }
 
-#new_recipe > input.btn.btn-primary.mx-auto.d-block {
+input.btn.btn-primary.mx-auto.d-block {
   width: 100px;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
 // 手順テーブル1項目目と2項目目の幅を合わせる
@@ -240,8 +242,8 @@ input {
   bottom: 14px;
 }
 
-#new_recipe > div:nth-child(3) > div > div:nth-child(2) > div > div.input.string.required.recipe_name > label,
-#new_recipe > div:nth-child(3) > div > div:nth-child(2) > div > div.input.string.optional.recipe_description > label {
+div.input.string.required.recipe_name > label,
+div.input.string.optional.recipe_description > label {
   font-size: 2rem;
 }
 
@@ -476,3 +478,13 @@ h2 {
   }
 }
 
+.drag_indicator {
+  height: 30px;
+  position: absolute;
+  bottom: 31px;
+  cursor: pointer;
+}
+
+.ui-sortable-handle {
+  height: 60px;
+}
