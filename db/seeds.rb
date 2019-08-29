@@ -15,6 +15,21 @@ CSV.foreach('db/食品成分インポート用5.csv', headers: true).each do |ro
   )
 end
 
+Recipe.create!(
+  [
+    {
+      recipe_id: '1',
+      number: '1',
+      content: 'フライパンを温める'
+    },
+    {
+      recipe_id: '2',
+      number: '2',
+      content: '卵を入れる'
+    }
+  ]
+)
+
 Direction.create!(
   [
     {

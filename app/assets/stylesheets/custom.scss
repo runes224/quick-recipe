@@ -81,7 +81,6 @@ footer {
   background-color: #151515;
   width: 100%;
   position: absolute;
-  bottom: 0;
 }
 
 footer a {
@@ -487,4 +486,9 @@ h2 {
 
 .ui-sortable-handle {
   height: 60px;
+}
+
+#user_remember_me {
+  position: absolute;
+  left: 150px;
 }
