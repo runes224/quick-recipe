@@ -3,7 +3,7 @@ class MyRecipesController < ApplicationController
 
   def index
     # @recipes = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).page(params[:page])
-    @q = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).ransack(params[:q])
+    @q = Recipe.joins(:my_recipes).where(my_recipes: { user: current_user }).ransack(params[:q])
     @recipes = @q.result(distinct: true)
                  .page(params[:page])
   end
@@ -14,7 +14,7 @@ class MyRecipesController < ApplicationController
   end
 
   def destroy
-    @my_recipe = MyRecipe.find_by(recipe_id: params[:recipe_id], user_id: current_user.id)
+    @my_recipe = current_user.my_recipes.find_by(recipe_id: params[:recipe_id])
     @my_recipe.destroy
     redirect_back(fallback_location: root_path)
   end
