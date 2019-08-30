@@ -2,21 +2,23 @@
 
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: %i[index new create edit update destroy]
+  before_action :set_recipe, only: %i[edit update destroy]
 
   def index
     agent = Mechanize.new
+    # TODO: ひらがなだったらスクレイピングをしないようにしたい
     begin
       hiragana = agent.get('https://yomikatawa.com/kanji/' + params[:keyword]).search('#content p')[0].inner_text
     rescue
-      @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
+      @ingredients = Ingredient.name_like(params[:keyword])
       render :index
     end
-      @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%")
-                               .or(Ingredient.where("name LIKE(?)", "%#{hiragana}%"))
+      @ingredients = Ingredient.name_like(params[:keyword]).or(Ingredient.name_like(hiragana))
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+    # TODO: モデルに組み込む
     @total_calorie = 0
     @total_carbohydrate = 0
     @total_protein = 0
@@ -48,26 +50,19 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
-      @ingredient_ids = @recipe.ingredient_ids
-    @ingredient_ids.map! {|item|  Ingredient.find_by(id: item).name }
-    @i = 0
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe), notice: "「#{@recipe.name}」を更新しました。"
     else
       flash.now[:alert] = @article.errors.full_messages.join('。')
       render :edit
     end
-    @recipe = Recipe.find(params[:id])
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    if @recipe.destroy!
+    if @recipe.destroy
       redirect_to root_path, notice: ("「#{@recipe.name}」を削除しました")
     else
       flash.now[:alert] = @recipe.errors.full_messages.join('。')
@@ -83,4 +78,7 @@ class RecipesController < ApplicationController
                                    directions_attributes: [:id, :number, :content, :_destroy])
   end
 
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 end

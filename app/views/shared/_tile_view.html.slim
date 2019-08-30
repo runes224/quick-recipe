@@ -37,8 +37,8 @@
            | #{total_calorie.round(0)} kcal
           .float-right.text-right style="height: 24px;"
             - if user_signed_in?
-              - my_recipe = MyRecipe.find_by(recipe_id: recipe, user_id: current_user.id)
               - if current_user.already_liked?(recipe)
+                - my_recipe = MyRecipe.find_by(recipe_id: recipe, user_id: current_user.id)
                 = link_to 'マイレシピを解除', recipe_my_recipe_path(recipe, my_recipe), method: :delete, class: "btn btn-sm btn-outline-danger"
               - else
                 = link_to 'マイレシピに追加', recipe_my_recipes_path(recipe),method: :post, class: "btn btn-sm btn-outline-primary"
