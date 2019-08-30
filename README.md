@@ -50,11 +50,17 @@
 ## 設計書
 
 ### DB一覧
-
-[Untitled](https://www.notion.so/535dfb3b353e44a6a745c8ab7d35d28e)
+|  **DB名** | **概要** |
+| :---: | :---: |
+|  Recipes | レシピテーブル |
+|  Users | ユーザテーブル |
+|  Directions | 手順テーブル |
+|  Ingredients | 材料テーブル |
+|  MyRecipes | レシピテーブルとユーザテーブルの中間テーブル |
+|  IngredientRelations | レシピテーブルと材料テーブルの中間テーブル |
 
 ### ER図
 
-[](https://www.notion.so/23f7e8533bee4d03928c5784f2e22096#7e7689c2a9d64b7c99f0cf55f9693282)
+![Untitled Diagram (4) (1)](https://user-images.githubusercontent.com/49732811/64012861-7a8b7b00-cb59-11e9-8575-570ea0133ec2.jpg)
 
 [https://quip.com/YUUBAE8F3bhk/QuickRecipe](https://quip.com/YUUBAE8F3bhk/QuickRecipe)
