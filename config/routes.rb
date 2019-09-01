@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
   get 'my_recipes', to: 'my_recipes#index'
 
-  resources :recipes, only: %i[index new create show edit update destroy] do
+  resources :recipes do
     resources :my_recipes, only: %i[create destroy]
   end
 end

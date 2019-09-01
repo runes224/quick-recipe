@@ -39,3 +39,7 @@ pgsql-data/pg_tblspc/
 pgsql-data/pg_twophase/
 pgsql-data/pg_wal/archive_status/
 config/master.key
+
+.idea/
+/vendoer/bundle/
+public/uploads
