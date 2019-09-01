@@ -51,6 +51,7 @@
           br
           |  C #{total_carbohydrate.round(1)} g
           .float-right.text-right
-            |  作成者 #{recipe.user.name}
-
-= paginate @recipes
+            | 作成者
+            = link_to "#{recipe.user.name}", user_path(recipe.user)
+.pagination-bottom
+  = paginate @recipes

@@ -1,5 +1,5 @@
 - provide(:title, "登録情報の変更")
-h1 style="font-size: 3vw;" 登録情報の変更
+h1 ユーザ設定
 
 .container.bg-gray style="padding: 30px 0px 0px 20px;"
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
@@ -7,7 +7,7 @@ h1 style="font-size: 3vw;" 登録情報の変更
     .field.edit_field style="text-align: center;"
       = gravatar_for @user
       br
-      a href="http://gravatar.com/emails" プロフィール画像を変更する
+      a href="http://gravatar.com/emails" target="_blank" プロフィール画像を変更する
     .field.edit_field
       = f.label :email
       br
@@ -39,9 +39,8 @@ h1 style="font-size: 3vw;" 登録情報の変更
       = f.submit "変更する", class: "btn btn-primary btn-custom"
 hr
 div style="padding: 50px;"
-  h3 登録情報の削除
-  .float-right.text-right
-    = button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除して大丈夫ですか?" }, method: :delete, class: "btn btn-danger", style: "position: relative;"
+  h3.user-delete-title 登録情報の削除
   br
   br
-  = link_to "戻る", :back
+  .btn-wrapper
+    = button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除して大丈夫ですか?" }, method: :delete, class: "btn btn-danger btn-custom"

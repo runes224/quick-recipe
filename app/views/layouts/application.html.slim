@@ -8,11 +8,14 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render 'layouts/header'
-    .container.mt-30
-      - flash.each do |message_type, message|
-        - message_type = "info" if message_type == "notice"
-        - message_type = "danger" if message_type == "alert"
-        = content_tag :div, message, class: "alert alert-#{message_type}"
-    = yield
-  = render 'layouts/footer'
+    #wrapper
+      main
+        = render 'layouts/header'
+        .container.mt-30
+          - flash.each do |message_type, message|
+            - message_type = "info" if message_type == "notice"
+            - message_type = "danger" if message_type == "alert"
+            = content_tag :div, message, class: "alert alert-#{message_type}"
+        = yield
+      footer
+        = render 'layouts/footer'

@@ -22,7 +22,7 @@ ja:
         image: 料理のイメージ
         created_at: 作成日
         updated_at: 更新日
-      ingredient_relation:
+      recipe/ingredient_relations:
         id: ID
         recipe_id: レシピID
         ingredient_id: 材料ID

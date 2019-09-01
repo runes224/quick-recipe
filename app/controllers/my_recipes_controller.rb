@@ -2,8 +2,7 @@ class MyRecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @recipes = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).page(params[:page])
-    @q = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).ransack(params[:q])
+    @q = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).order(created_at: :desc).ransack(params[:q])
     @recipes = @q.result(distinct: true)
                  .page(params[:page])
   end

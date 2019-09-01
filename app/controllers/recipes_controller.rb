@@ -59,10 +59,9 @@ class RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe), notice: "「#{@recipe.name}」を更新しました。"
     else
-      flash.now[:alert] = @article.errors.full_messages.join('。')
+      flash.now[:alert] = @recipe.errors.full_messages.join('。')
       render :edit
     end
-    @recipe = Recipe.find(params[:id])
   end
 
   def destroy

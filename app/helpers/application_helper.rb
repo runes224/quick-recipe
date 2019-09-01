@@ -10,20 +10,18 @@ module ApplicationHelper
     end
   end
 
-  # #漢字をひらがなに変換する
-  # # require 'mechanize'
-  #
-  # agent = Mechanize.new
-  # url = agent.get('https://yomikatawa.com/kanji/')
-  #
-  # def to_hiragana(kanji)
-  #     agent.get(url + kanji).search('#content p').first.inner_text
-  # end
-  #
-  # def to_romaji(kanji)
-  #   # agent = Mechanize.new
-  #     # url = agent.get('https://yomikatawa.com/kanji/')
-  #     agent.get('https://yomikatawa.com/kanji/' + '漢字').search('#content p')[1].inner_text
-  # end
-
+  # デバイスのエラーメッセージ出力メソッド
+  def devise_error_messages
+    return "" if resource.errors.empty?
+    html = ""
+    # エラーメッセージ用のHTMLを生成
+    messages = resource.errors.full_messages.each do |msg|
+      html += <<-EOF
+        <div class="error_field alert alert-danger" role="alert">
+          #{msg}
+        </div>
+      EOF
+    end
+    html.html_safe
+  end
 end

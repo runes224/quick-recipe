@@ -7,9 +7,11 @@ h1#text_pink
       = image_tag @recipe.image_url, class: "card-img-top img_max", style: "border-radius: 10px;"
     .col-md-4.mb-30
       div.mb-30
-        h5 = @recipe.description
-          .float-right
-             = "作成者：#{@recipe.user.name}"
+        p.recipe-description
+          = @recipe.description
+      .text-right
+        | 作成者
+        = link_to "#{@recipe.user.name}", user_path(@recipe.user)
       .card.mb-30
         h5.card-header 栄養素(1食あたり)
         table.table.mb-0.table-striped
@@ -29,9 +31,9 @@ h1#text_pink
             tr
               th 食塩相当量
               th #{@total_salt.round(1)} g
-      div
+      div.show-myrecipe
         h5 マイレシピ数:#{@recipe.my_recipes.count}
-        .right
+        .add-myrecipe
           - if user_signed_in?
             - if current_user.already_liked?(@recipe)
               = link_to 'マイレシピを解除', recipe_my_recipe_path(@recipe), method: :delete, class: "b-5 btn btn-sm btn-outline-danger"
@@ -42,7 +44,7 @@ h1#text_pink
           i class="material-icons" edit
           = link_to "編集する", edit_recipe_path, class: "b-5 pr-10 t-gray"
           i class="material-icons" delete_forever
-          = link_to "削除する", recipe_path(@recipe), method: :delete, class: "b-5 t-gray"
+          = link_to "削除する", recipe_path(@recipe), method: :delete, data: { confirm: '本当に削除しますか？' } ,class: "b-5 t-gray"
 .container
   .row
     .col-md-6.mb-30

@@ -1,0 +1,158 @@
+//show
+.show-edit-delete
+  position: relative
+  bottom: 0
+  right: 0
+  color: #777777
+  float: right
+  padding-top: 15px
+
+
+.recipe-description
+  word-wrap: break-word
+
+.show-myrecipe
+  display: flex
+
+.add-myrecipe
+  position: absolute
+  right: 0
+
+//new,edit
+span.error
+  display: none
+
+.drag_indicator
+  height: 30px
+  position: absolute
+  bottom: 31px
+  cursor: pointer
+
+.ui-sortable-handle
+  height: 60px
+
+.page-link
+  color: #E86B88
+
+.page-item.active .page-link
+  z-index: 1
+  color: #fff
+  background-color: #E86B88
+  border-color: #E86B88
+
+#img1
+  width: 100%
+  background-color: #ffffff
+  border-radius: 10px
+
+
+
+#recipe_description
+  height: 192px !important
+  top: 0
+
+input.btn.btn-primary.mx-auto.d-block
+  width: 100px
+  margin: 0 auto
+  margin-top: 30px
+
+// 手順テーブル1項目目と2項目目の幅を合わせる
+#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2),
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div:nth-child(2)
+  height: 60px
+
+// 材料フォーム1項目目と2項目目の幅を合わせる
+#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1),
+#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1)
+  height: 110px
+
+#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div.nested-fields > div > div:nth-child(5) > a,
+#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div.nested-fields > div > div:nth-child(3) > a
+  position: absolute
+  top: 5px
+
+#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a,
+#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1) > div > div > div:nth-child(5) > a,
+#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(3) > a
+  position: absolute
+  bottom: 14px
+
+div.input.string.required.recipe_name > label,
+div.input.string.optional.recipe_description > label
+  font-size: 2rem
+
+.btn-circle-3d
+  font-size: 20px
+  display: inline-block
+  text-decoration: none
+  background: #7C7C7C
+  color: #FFF
+  width: 30px
+  height: 30px
+  line-height: 30px
+  border-radius: 50%
+  text-align: center
+  font-weight: bold
+  overflow: hidden
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29)
+  border-bottom: solid 3px #7C7C7C
+  transition: .4s
+
+.btn-circle-3d:active
+  -webkit-transform: translateY(2px)
+  transform: translateY(2px)
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15)
+  border-bottom: none
+
+#second-form
+  padding-top: 30px
+
+#myfile > div > label
+  display: none
+
+abbr
+  display: none
+
+.numeric.integer.required
+  outline: 0
+  border: 0px
+  background: transparent
+
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div.field.ui-sortable-handle > div > div > div:nth-child(1) > div > label
+  color: #F9D777
+
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > .nested-fields
+  height: 59px
+
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a
+  position: absolute
+  bottom: 35px
+
+#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div.nested-fields > div > div:nth-child(3) > a
+  position: absolute
+  top: 12px
+
+#recipe_directions_attributes_0_number
+  position: relative
+  bottom: 25px
+
+#ingredient-search-results
+  li:hover
+    cursor: pointer
+    background-color: #7C7C7C
+    color: #FFFFFF
+
+#add_ingredient_field,
+#open_modal
+  display: none !important
+
+#submit_button
+  cursor: pointer
+
+//材料関係テーブル ID入力欄を消す
+.hide
+  display: none
+
+#recipe_directions_attributes_0_number
+  position: absolute
+  bottom: 30px
