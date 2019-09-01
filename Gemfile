@@ -38,6 +38,8 @@ gem 'jquery-turbolinks'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'mechanize'
+gem 'aws-sdk'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

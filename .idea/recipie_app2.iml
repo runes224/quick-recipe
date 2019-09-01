@@ -104,6 +104,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_racer (v0.2.6, Remote: ruby-2.5.5-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.11.3, Remote: ruby-2.5.5-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.3.0, Remote: ruby-2.5.5-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.13.1, Remote: ruby-2.5.5-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nested_form_fields (v0.8.2, Remote: ruby-2.5.5-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-http-digest_auth (v1.4.1, Remote: ruby-2.5.5-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-http-persistent (v3.1.0, Remote: ruby-2.5.5-p157) [gem]" level="application" />
