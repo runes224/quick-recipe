@@ -4,7 +4,7 @@
       = paginate @recipes
       .form-group.row
     .col-md-5
-      = search_form_for(@q, url:root_path)  do |f|
+      = search_form_for(@q, url:request.url)  do |f|
         = f.label :name_or_ingredients_name_cont, class: 'form-control hide', label: false
         = f.search_field :name_or_ingredients_name_cont, class: 'form-control', placeholder: "料理名・材料名..."
         = f.submit class: 'btn btn btn-light btn-search pink'
