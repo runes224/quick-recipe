@@ -2,7 +2,7 @@ class MyRecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @q = Recipe.joins(:my_recipes).where(my_recipes: { user_id: current_user.id }).order(created_at: :desc).ransack(params[:q])
+    @q = Recipe.joins(:my_recipes).where(my_recipes: { user: current_user }).order(created_at: :desc).ransack(params[:q])
     @recipes = @q.result(distinct: true)
                  .page(params[:page])
   end
@@ -13,7 +13,7 @@ class MyRecipesController < ApplicationController
   end
 
   def destroy
-    @my_recipe = MyRecipe.find_by(recipe_id: params[:recipe_id], user_id: current_user.id)
+    @my_recipe = current_user.my_recipes.find_by(recipe: params[:recipe])
     @my_recipe.destroy
     redirect_back(fallback_location: root_path)
   end
