@@ -1,6 +1,6 @@
 FROM ruby:2.6.3
 ENV LANG C.UTF-8
-RUN bash - && apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN bash - && apt-get update -qq && apt-get install -y nodejs postgresql-client && apt-get install -y vim
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
