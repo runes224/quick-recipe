@@ -1,5 +1,5 @@
 FROM ruby:2.6.3
-ENV LANG C.UTF-8
+ENV LANG sjis
 RUN bash - && apt-get update -qq && apt-get install -y nodejs postgresql-client && apt-get install -y vim
 
 # nginx
