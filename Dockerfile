@@ -1,12 +1,21 @@
 FROM ruby:2.6.3
 ENV LANG C.UTF-8
 RUN bash - && apt-get update -qq && apt-get install -y nodejs postgresql-client && apt-get install -y vim
+
+# nginx
+RUN apt-get install -y nginx
+ADD nginx.conf /etc/nginx/sites-available/app.conf
+RUN rm -f /etc/nginx/sites-enabled/default && \
+    ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app.conf
+
+# Rails App
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
+
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
@@ -32,3 +41,7 @@ RUN apt-get update && apt-get install -y unzip && \
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
+
+# Start Server
+CMD bundle exec puma -d && \
+    /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
