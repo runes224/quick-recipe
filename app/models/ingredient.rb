@@ -10,4 +10,6 @@ class Ingredient < ApplicationRecord
   validates :protein, presence: true
   validates :lipid, presence: true
   validates :salt, presence: true
+
+  scope :name_like, -> (name) { where("name LIKE(?)", "%#{name}%") }
 end

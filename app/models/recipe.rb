@@ -5,10 +5,10 @@ class Recipe < ApplicationRecord
   has_many :my_recipes
   has_many :added_recipes, through: :my_recipes, source: :user
   has_many :directions, -> {order('number ASC')}, dependent: :destroy, inverse_of: :recipe
-  accepts_nested_attributes_for :directions, allow_destroy: true
   has_many :ingredient_relations, dependent: :destroy, inverse_of: :recipe
-  accepts_nested_attributes_for :ingredient_relations, allow_destroy: true
   has_many :ingredients, through: :ingredient_relations
+  accepts_nested_attributes_for :directions, allow_destroy: true
+  accepts_nested_attributes_for :ingredient_relations, allow_destroy: true
   validates :name, presence: true, length: {maximum: 50}
   validates :description, length: {maximum: 300}
   validates :image, presence: true

@@ -28,7 +28,8 @@ span.error
   bottom: 37px
   cursor: pointer
 
-.ui-sortable-handle
+// 手順テーブル1項目目と2項目目の幅を合わせる
+.recipe_directions_content
   height: 60px
 
 .page-link
@@ -45,8 +46,6 @@ span.error
   background-color: #ffffff
   border-radius: 10px
 
-
-
 #recipe_description
   height: 192px !important
   top: 0
@@ -56,26 +55,29 @@ input.btn.btn-primary.mx-auto.d-block
   margin: 0 auto
   margin-top: 30px
 
-// 手順テーブル1項目目と2項目目の幅を合わせる
-#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2),
-#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div:nth-child(2)
-  height: 60px
+#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a,
+#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1) > div > div > div:nth-child(5) > a,
+#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(3) > a
+  position: absolute
+  bottom: 14px
 
 // 材料フォーム1項目目と2項目目の幅を合わせる
 #new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1),
 #new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1)
   height: 110px
 
+// remove
+
 #new_recipe > div:nth-child(4) > div > div:nth-child(1) > div.nested-fields > div > div:nth-child(5) > a,
 #new_recipe > div:nth-child(4) > div > div:nth-child(2) > div.nested-fields > div > div:nth-child(3) > a
   position: absolute
   top: 5px
 
-#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a,
-#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1) > div > div > div:nth-child(5) > a,
-#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(3) > a
-  position: absolute
-  bottom: 14px
+//#second-form > div.col-md-6.sortable.js-direction.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a,
+//#new_recipe > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1) > div > div > div:nth-child(5) > a,
+//#new_recipe > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(3) > a
+//  position: absolute
+//  bottom: 14px
 
 div.input.string.required.recipe_name > label,
 div.input.string.optional.recipe_description > label
@@ -118,15 +120,17 @@ abbr
   border: 0px
   background: transparent
 
-#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div.field.ui-sortable-handle > div > div > div:nth-child(1) > div > label
-  color: #F9D777
-
-#second-form > div.col-md-6.js-direction.sortable.ui-sortable > .nested-fields
-  height: 59px
-
-#second-form > div.col-md-6.js-direction.sortable.ui-sortable > div:nth-child(2) > div > div > div:nth-child(3) > a
+// 手順欄 削除ボタンの位置調整
+.remove_direction
   position: absolute
-  bottom: 38.5px
+  top: 14px
+
+// 手順欄 ドラッグアイコンの位置調整
+.drag_indicator
+  position: absolute
+  top: 11px
+
+
 
 #second-form > div.col-md-6.js-direction.sortable.ui-sortable > div.nested-fields > div > div:nth-child(3) > a
   position: absolute
