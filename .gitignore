@@ -28,17 +28,8 @@
 /config/master.keys
 coverage
 bin/rspec
-pgsql-data/pg_commit_ts/
-pgsql-data/pg_dynshmem/
-pgsql-data/pg_logical/mappings/
-pgsql-data/pg_logical/snapshots/
-pgsql-data/pg_replslot/
-pgsql-data/pg_serial/
-pgsql-data/pg_snapshots/
-pgsql-data/pg_stat_tmp/
-pgsql-data/pg_tblspc/
-pgsql-data/pg_twophase/
-pgsql-data/pg_wal/archive_status/
+
+pgsql-data
 config/master.key
 config/credentials.yml.enc
 

@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :added_recipes, through: :my_recipes, source: :recipe
 
   def already_liked?(recipe)
-    self.my_recipes.exists?(recipe_id: recipe.id)
+    self.my_recipes.exists?(recipe: recipe)
   end
 end
