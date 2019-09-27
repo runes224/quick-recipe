@@ -3,5 +3,5 @@ IngredientRelation.seed do |s|
   s.recipe = Recipe.find_by(id: 200)
   s.weight = 1
   s.display_weight = 1
-  s.display_name = "明太子"
+  s.display_name = "唐辛子"
 end
