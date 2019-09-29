@@ -10,7 +10,7 @@ end
 
 Recipe.seed do |s|
   s.id = 200
-  s.name = "さば水煮カレー"
+  s.name = "鯖水煮カレー"
   s.description = "さばを食べてDHA・EPAを摂取しましょう。カレー味なので魚臭さがなく、お子さんにもおすすめです！"
   s.user = User.find_by(id: 1)
   s.image = File.open("#{Rails.root}/db/saba_curry.jpg")
