@@ -16,7 +16,7 @@ Direction.seed do |s|
   s.id = 3
   s.recipe = Recipe.find_by(id: 200)
   s.number = 2
-  s.content = "カットトマト・水・「さば水煮」を缶汁ごと加え、煮立ったらいったん火を止め、カレールウを加えて混ぜます。弱火にし、とろみが出るまで煮ます"
+  s.content = "カットトマト・水・「鯖水煮」を缶汁ごと加え、煮立ったらいったん火を止め、カレールウを加えて混ぜます。弱火にし、とろみが出るまで煮ます"
 end
 
 Direction.seed do |s|
