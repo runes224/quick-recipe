@@ -9,7 +9,7 @@ Direction.seed do |s|
   s.id = 2
   s.recipe = Recipe.find_by(id: 200)
   s.number = 2
-  s.content = "フライパンにサラダ油・にんにくを入れて中火にかけ、香りが出たらたまねぎ・にんじんを加えて炒めます"
+  s.content = "フライパンにサラダ油・にんにくを入れて中火にかけ、香りが出たら玉ねぎ・にんじんを加えて炒めます"
 end
 
 Direction.seed do |s|
