@@ -2,7 +2,7 @@ Direction.seed do |s|
   s.id = 1
   s.recipe = Recipe.find_by(id: 200)
   s.number = 1
-  s.content = "たまねぎ・にんじん・にんにくはみじん切りにします"
+  s.content = "玉ねぎ・にんじん・にんにくはみじん切りにします"
 end
 
 Direction.seed do |s|
